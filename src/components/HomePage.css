@@ -1,0 +1,16 @@
+.HomePage {
+    flex: 0.8;
+    background-color: #f7f7f7;
+    padding: 40px 20px;
+    padding-bottom: 0;
+}
+
+.HomePage >h2 {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.HomePage__Notif {
+    display: flex;
+    flex-wrap: wrap;
+}

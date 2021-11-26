@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    flex: 0.8;
+    width: 100%;
+    margin-right: 22%;
+    padding: 40px 20px;
+    padding-bottom: 0;
+}

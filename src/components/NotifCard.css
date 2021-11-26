@@ -1,0 +1,40 @@
+.NotifCard {
+    width: 370px;
+    margin-bottom: 50px;
+}
+
+.NotifCard__thumbnail {
+    height: 200px;
+    width: 350px;
+}
+
+.Notif__info {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+
+.Notif__text {
+    margin-left: 15px;
+}
+
+.Notif__text > h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.Notif__text__time {
+    font-size: 12px;
+    color: gray;
+}
+
+.Notif__text__message {
+    font-size: 16px;
+    color: #444444;
+    font-weight: bold;
+}
+
+.Notif__text__uid {
+    font-size: 11px;
+    color: gray;
+}
