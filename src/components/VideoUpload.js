@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core';
 function VideoUpload() {
 
     const [video, setVideo] = useState(null);
-    const [videos, loadVideos] = useState('');
+    //const [videos, loadVideos] = useState('');
     const [videoProgress, setVideoProgress] = useState(0);
     const [videoTitle, setVideoTitle] = useState("");
     const [videoCaption, setVideoCaption] = useState("");
@@ -64,15 +64,23 @@ function VideoUpload() {
                             };
                             xhr.open('GET', vidUrl);
                             xhr.send();
-                            loadVideos(vidUrl);
-                            console.log(videos);
-                            
+                            // loadVideos(vidUrl);
+                            // console.log(videos);
+                            console.log(vidUrl);
+                            // if (videos === null) {
+                            //     while (videos === null) {
+                            //         xhr.open('GET', vidUrl);
+                            //         xhr.send();
+                            //         loadVideos(vidUrl);
+                            //     }
+                            // }
+
 
                             db.collection("videos").add({
                                 videoCaption: videoCaption,
                                 videoDate: videoDate,
                                 videoTitle: videoTitle,
-                                videoUrl: videos
+                                videoUrl: vidUrl
                             });
 
                             setVideoCaption("");

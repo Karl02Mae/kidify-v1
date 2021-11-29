@@ -21,7 +21,8 @@ function AnnounceImageUpload({ username }) {
         if (image === null) {
             alert("No Image Selected!");
         } else {
-            const uploadTask = storage.ref('images/' + image.name).put(image);
+            const imageName = title + image.name;
+            const uploadTask = storage.ref('images/' + title + imageName).put(image);
 
             uploadTask.on(
                 "state_changed",
@@ -41,7 +42,7 @@ function AnnounceImageUpload({ username }) {
                     //complete function..
                     storage
                         .ref("images")
-                        .child(image.name)
+                        .child(imageName)
                         .getDownloadURL()
                         .then(url => {
                             //post image inside db...

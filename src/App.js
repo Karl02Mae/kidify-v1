@@ -14,6 +14,7 @@ import AdminLogin from './components/AdminLogin';
 import AdminRegister from './components/AdminRegister';
 import UploadAnnounce from './components/UploadAnnounce';
 import VideoUploadPage from './components/VideoUploadPage';
+import VideoPlayer from './components/VideoPlayer';
 
 function App() {
 
@@ -56,6 +57,13 @@ function App() {
             <div className="app__page">
               <Sidebar2 />
               <Videos />
+            </div>
+          </Route>
+
+          <Route path="play/:id">
+            <div className="app__page">
+              <Sidebar2 />
+              <VideoPlayer />
             </div>
           </Route>
 
