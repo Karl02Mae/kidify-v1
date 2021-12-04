@@ -22,7 +22,7 @@ function AnnounceImageUpload({ username }) {
             alert("No Image Selected!");
         } else {
             const imageName = title + image.name;
-            const uploadTask = storage.ref('images/' + title + imageName).put(image);
+            const uploadTask = storage.ref('images/' + imageName).put(image);
 
             uploadTask.on(
                 "state_changed",
