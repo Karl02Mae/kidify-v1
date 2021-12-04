@@ -1,9 +1,9 @@
-import React from 'react'
+import React/*, { useState }*/ from 'react';
 //import Avatar from "@material-ui/core/Avatar";
 import './VideoCard.css';
 import Dummy from '../imgs/1111.jpg';
 
-function VideoCard({ videoTitle, videoCaption, videoDate, videoUrl}) {
+function VideoCard({ videoTitle, videoCaption, videoDate, videoUrl }) {
 
     return (
         <div className="videoCard">
@@ -22,10 +22,11 @@ function VideoCard({ videoTitle, videoCaption, videoDate, videoUrl}) {
                         {videoDate}
                     </p>
                     <p>{videoCaption}</p>
+
                 </div>
             </div>
         </div>
     )
 }
 
-export default VideoCard
+export default VideoCard;

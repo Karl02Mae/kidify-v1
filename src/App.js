@@ -33,7 +33,7 @@ function App() {
 
           </Route>
 
-          <Route path="/register">
+          <Route path="/registerKidifyAdmin">
 
             <AdminRegister />
 
@@ -60,9 +60,8 @@ function App() {
             </div>
           </Route>
 
-          <Route path="play/:id">
+          <Route path="/play/:id/:url">
             <div className="app__page">
-              <Sidebar2 />
               <VideoPlayer />
             </div>
           </Route>

@@ -10,6 +10,7 @@ function Videos() {
 
     const [vids, setVids] = useState([]);
 
+
     useEffect(() => {
         db.collection('videos').orderBy('videoDate', 'desc').onSnapshot(snapshot => {
             setVids(snapshot.docs.map(doc => ({
@@ -26,7 +27,9 @@ function Videos() {
 
                 {
                     vids.map(({ id, data }) => (
-                        <Link to={{ pathname: `/play/${id}`, data: data}}>
+                        <Link
+                            key={id}
+                            to={{ pathname: `/play/${id}/${data.videoUrl}`, data: data }}>
                             {console.log(id)}
                             <VideoCard
                                 key={id}
@@ -35,6 +38,7 @@ function Videos() {
                                 videoCaption={data.videoCaption}
                                 videoUrl={data.videoUrl}
                             />
+                            {console.log(data.videoUrl)}
                         </Link>
                     ))
 
