@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminRegister.css';
+import { Helmet } from 'react-helmet';
 
 function AdminRegister() {
 
@@ -45,6 +46,29 @@ function AdminRegister() {
 
     return (
         <div className="register">
+            <Helmet>
+                <title>Kidify - Admin Register </title>
+                <meta
+                    name="description"
+                    content="Register to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    data-react-helmet="true"
+                />
+                <meta
+                    property="og:description"
+                    content="Register to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    data-react-helmet="true"
+                />
+                <meta
+                    name="keywords"
+                    content="Kidify, Church Lessons, Register, register, church lessons, kidify"
+                    data-react-helmet="true"
+                />
+                <meta
+                    property="og:title"
+                    content="Kidify - Register"
+                    data-react-helmet="true"
+                />
+            </Helmet>
             <div className="register_container">
                 <h1>Sign Up</h1>
                 <p>It's quick and easy.</p>
@@ -87,22 +111,10 @@ function AdminRegister() {
                         />
                     </center>
 
-                    <p className="register_policy">
-                        By clicking Sign Up, you agree to our{" "}
-                        <span>Terms, Data Policy</span> and <span>Cookie Policy</span>. You
-                        may receive SMS notification from us and can opt out at any time.
-                    </p>
-
                     <center>
                         <button onClick={register} type="submit" className="register_register">
                             Sign Up
                         </button>
-                    </center>
-
-                    <center>
-                        <Link to="/login">
-                            <p className="register_login">Already have an account?</p>
-                        </Link>
                     </center>
                 </form>
             </div>

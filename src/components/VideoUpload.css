@@ -15,6 +15,13 @@
     border-radius: 5px;
 }
 
+.videoUpload__fileLabel {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
 .videoUpload__video__progress {
     width: 95%;
     margin-left: auto;
@@ -50,4 +57,13 @@
 
 .button__videoUpload {
     background-color: gray;
+}
+
+.videoUpload__date {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 90%;
+    border-radius: 5px;
 }

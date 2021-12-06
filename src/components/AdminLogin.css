@@ -1,6 +1,9 @@
 .login {
-    background-color: #e9ebee;
-    height: 100vh;
+    background-image: url(https://i.ibb.co/88p5zYT/background.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 95vh;
+    width: 95vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,10 +22,10 @@
     border: 1px solid #dddfe2;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-    height: 312px;
     width: 396px;
     background-color: #fff;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .login_container > h3 {
@@ -108,4 +111,8 @@
 
 .sideInfo h5:hover {
     text-decoration: underline;
+}
+
+.alert {
+    color: red;
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-// import WordLogo from './img/ITM_Word_Logo.png'
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminLogin.css';
+import { Helmet } from 'react-helmet';
 
 function AdminLogin() {
     const history = useHistory("");
@@ -31,9 +31,34 @@ function AdminLogin() {
 
     return (
         <div className="login">
-            {/* <img src={WordLogo} className="login_logo" alt="Logo" /> */}
+            <Helmet>
+                <title>Kidify - Log In </title>
+                <meta
+                    name="description"
+                    content="Log in to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    data-react-helmet="true"
+                />
+                <meta
+                    property="og:description"
+                    content="Log in to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    data-react-helmet="true"
+                />
+                <meta
+                    name="keywords"
+                    content="Kidify, Church Lessons, Log In, login, church lessons, kidify"
+                    data-react-helmet="true"
+                />
+                <meta
+                    property="og:title"
+                    content="Kidify - Login"
+                    data-react-helmet="true"
+                />
+            </Helmet>
             <div className="login_container">
                 <h3>Log In to KIDIFY!</h3>
+                <h3 className="alert">Alert! Only Admin has to log in!
+                    <br /> if you are not an admin, <Link to='/'>click here</Link>
+                </h3>
                 <form>
                     <center>
                         <input type="email" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} />

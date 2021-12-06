@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import KDFLogo from '../imgs/kidify.png';
 import './Header.css';
@@ -17,6 +17,8 @@ import { auth } from '../firebase';
 function Header() {
 
     const [user, setUser] = useState(null);
+
+    const history = useHistory();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -37,7 +39,7 @@ function Header() {
     }, [user]);
 
     const [inputSearch, setInputSearch] = useState('');
-    if (window.location.pathname === '/login' || window.location.pathname === '/register') {
+    if (window.location.pathname === '/login' || window.location.pathname === '/registerKidifyAdmin') {
         return null;
     }
     else
@@ -83,9 +85,9 @@ function Header() {
                     </div>
                 ) : (
                     <div className="home__loginContainer">
-                        <Link to="/login"><Button>
+                        <Button onClick={() => { history.push('/login') }}>
                             Log In
-                        </Button></Link>
+                        </Button>
                     </div>
                 )}
 

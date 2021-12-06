@@ -13,6 +13,7 @@
     background-color: white;
     box-shadow: 3px 5px lightgray;
     border-radius: 5px;
+    float: left;
 }
 
 .imageupload__progress {
@@ -48,6 +49,20 @@
     margin-bottom: 10px;
 }
 
-.button__upload {
+.button__upload:hover {
     background-color: gray;
+}
+.imageupload__date {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 90%;
+    border-radius: 5px;
+}
+
+.upload {
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
