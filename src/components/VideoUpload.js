@@ -85,7 +85,7 @@ function VideoUpload() {
             <p className="videoUpload__fileLabel">Upload Video</p>
             <input className="videoUpload__video" type="file" accept="video/mp4" onChange={videoHandleChange} />
             <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} />
-            <input className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} />
+            <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} />
             <input className="videoUpload__date" type="date" onChange={event => setVideoDate(event.target.value)} value={videoDate} />
             <Button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video

@@ -21,8 +21,6 @@ function VideoCard({ videoTitle, videoCaption, videoDate, videoUrl }) {
                     <p>
                         {videoDate}
                     </p>
-                    <p>{videoCaption}</p>
-
                 </div>
             </div>
         </div>
