@@ -77,7 +77,7 @@ function AnnounceImageUpload({ username }) {
             <p className="upload">Upload Announcement Image</p>
             <input className="imageupload__button" type="file" onChange={handleChange} />
             <input className="imageupload__title" type="text" placeholder="Enter Announcement Title" onChange={event => setTitle(event.target.value)} value={title} />
-            <input className="imageupload__text" type="text" placeholder="Enter a message..." onChange={event => setCaption(event.target.value)} value={caption} />
+            <textarea className="imageupload__text" type="text" placeholder="Enter a message..." onChange={event => setCaption(event.target.value)} value={caption} />
             <input className="imageupload__date" type="date" onChange={event => setDate(event.target.value)} value={date} />
             <Button className="button__upload" onClick={handleUpload}>
                 Upload

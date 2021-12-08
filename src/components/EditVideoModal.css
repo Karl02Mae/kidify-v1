@@ -1,0 +1,45 @@
+.videoRoot {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.videoTextBoxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.videoTextBoxes > h1 {
+    font-size: 20px;
+}
+
+.videoTextBoxes > input {
+    border: solid 1px black;
+    border-radius: 15px;
+    height: 50px;
+    padding: 10px;
+}
+
+.videoTextBoxes > textarea {
+    border: solid 1px black;
+    border-radius: 15px;
+    height: 50px;
+    padding: 10px;
+}
+
+.videoButtons {
+    display: flex;
+    margin: 10px;
+}
+
+.videoSubmit {
+    padding: 5px;
+    margin: 5px;
+}
+
+.videoCancel {
+    padding: 5px;
+    margin: 5px;
+}

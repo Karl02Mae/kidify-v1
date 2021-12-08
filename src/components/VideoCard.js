@@ -1,23 +1,45 @@
-import React/*, { useState }*/ from 'react';
-//import Avatar from "@material-ui/core/Avatar";
+import React, { useState } from 'react';
 import './VideoCard.css';
+import { db } from '../firebase';
+import { Link } from 'react-router-dom';
+import EditVideoModal from './EditVideoModal';
 import Dummy from '../imgs/1111.jpg';
 
-function VideoCard({ videoTitle, videoCaption, videoDate, videoUrl }) {
+function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
+
+    const [show, setShow] = useState(false);
+
+    const handleDelete = () => {
+        if (window.confirm('Are you sure you want to delete?')) {
+            db.collection('videos').doc(id).delete().then(() => {
+                console.log('Announcement Successfully Deleted')
+            }).catch((error) => {
+                console.error('Error Removing Announcement', error)
+            })
+        } else {
+            console.log('Not Deleted!')
+        }
+    }
 
     return (
         <div className="videoCard">
-            <img className="videoCard__thumbnail"
-                src={Dummy}
-                alt="Thumbnail"
-                height="200px"
-            />
+            <Link to={{ pathname: `/play/${id}/${videoUrl}` }}>
+                <img className="videoCard__thumbnail"
+                    src={Dummy}
+                    alt="Thumbnail"
+                    height="200px"
+                />
+            </Link>
+            <button onClick={() => setShow(true)}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+            <div className='Modal'>
+                <EditVideoModal onClose={() => setShow(false)} show={show} id={id} />
+            </div>
             <div className="video__info">
-                {/* <Avatar className="video__avatar"
-                    alt={channel}
-                    src={chan_img} /> */}
                 <div className="video__text">
-                    <h4>{videoTitle}</h4>
+                    <Link to={{ pathname: `/play/${id}/${videoUrl}` }}>
+                        <h4>{videoTitle}</h4>
+                    </Link>
                     <p>
                         {videoDate}
                     </p>

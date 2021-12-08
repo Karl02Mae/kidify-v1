@@ -1,0 +1,45 @@
+.root {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.TextBoxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.TextBoxes > h1 {
+    font-size: 20px;
+}
+
+.TextBoxes > input {
+    border: solid 1px black;
+    border-radius: 15px;
+    height: 50px;
+    width: 600px;
+    padding: 10px;
+}
+
+.TextBoxes > textarea {
+    border: solid 1px black;
+    border-radius: 15px;
+    height: 50px;
+    width: 600px;
+    padding: 10px;
+}
+
+.Buttons {
+    display: flex;
+    margin: 10px;
+}
+
+.submit {
+    padding: 5px;
+    margin: 5px;
+}
+
+.cancel {
+    padding: 5px;
+    margin: 5px;
+}

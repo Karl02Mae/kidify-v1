@@ -12,5 +12,5 @@
 
 .HomePage__Notif {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }

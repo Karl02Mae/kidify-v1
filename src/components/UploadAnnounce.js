@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth } from '../firebase';
 import AnnounceImageUpload from './AnnounceImageUpload';
 import './UploadAnnounce.css';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 function UploadAnnounce() {
 
@@ -27,38 +27,39 @@ function UploadAnnounce() {
     }, [user]);
 
     return (
-        <div className="container">
-            <Helmet>
-                <title>Kidify - Admin: Upload Announcement</title>
-                <meta
-                    name="description"
-                    content="Welcome to KIDIFY!. if you are not an admin of this page, please visit https://kidifyv1.netlify.app/ "
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:description"
-                    content="Welcome to KIDIFY!. if you are not an admin of this page, please visit https://kidifyv1.netlify.app/"
-                    data-react-helmet="true"
-                />
-                <meta
-                    name="keywords"
-                    content="Kidify, Church Lessons, Upload, upload, church lessons, kidify"
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:title"
-                    content="Kidify - Upload Announcement"
-                    data-react-helmet="true"
-                />
-            </Helmet>
-            <h1 className="title">Upload New Announcement</h1>
-            {user?.displayName ? (
-                <AnnounceImageUpload username={user.displayName} />
-            ) : (
-                <h3>Login to Post to KIDIFY!</h3>
-            )}
-        </div>
-    )
+        <HelmetProvider>
+            <div className="container">
+                <Helmet>
+                    <title>Kidify - Admin: Upload Announcement</title>
+                    <meta
+                        name="description"
+                        content="Welcome to KIDIFY!. if you are not an admin of this page, please visit https://kidifyv1.netlify.app/ "
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:description"
+                        content="Welcome to KIDIFY!. if you are not an admin of this page, please visit https://kidifyv1.netlify.app/"
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        name="keywords"
+                        content="Kidify, Church Lessons, Upload, upload, church lessons, kidify"
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:title"
+                        content="Kidify - Upload Announcement"
+                        data-react-helmet="true"
+                    />
+                </Helmet>
+                <h1 className="title">Upload New Announcement</h1>
+                {user?.displayName ? (
+                    <AnnounceImageUpload username={user.displayName} />
+                ) : (
+                    <h3>Login to Post to KIDIFY!</h3>
+                )}
+            </div>
+        </HelmetProvider>)
 }
 
 export default UploadAnnounce

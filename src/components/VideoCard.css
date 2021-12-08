@@ -3,6 +3,11 @@
     margin-bottom: 40px;
 }
 
+.videoCard > button {
+    padding: 5px;
+    margin: 5px;
+}
+
 .videoCard__thumbnail {
     height: 140px;
     width: 250px;

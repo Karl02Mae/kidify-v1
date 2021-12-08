@@ -1,11 +1,14 @@
 .NotifCard {
-    width: 370px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
     margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .NotifCard__thumbnail {
-    height: 200px;
-    width: 350px;
+    width: 800px;
+    height: 450px;
 }
 
 .Notif__info {
@@ -32,9 +35,27 @@
     font-size: 16px;
     color: #444444;
     font-weight: bold;
+    white-space: pre-line;
 }
 
 .Notif__text__uid {
     font-size: 11px;
     color: gray;
+}
+
+.Admin__Buttons {
+    display: flex;
+    float: right;
+}
+
+.EditButton {
+    height: 25px;
+    width: 50px;
+    margin: 10px;
+}
+
+.DeleteButton {
+    height: 25px;
+    width: 50px;
+    margin: 10px;
 }
