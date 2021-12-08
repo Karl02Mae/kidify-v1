@@ -1,4 +1,6 @@
 .videoCard {
+    display: flex;
+    flex-direction: column;
     width: 270px;
     margin-bottom: 40px;
 }
@@ -36,4 +38,15 @@
 .video__avatar {
     height: 30px !important;
     width: 30px !important;
+}
+
+.Admin__Buttons {
+    margin-right: 20px;
+}
+
+.Admin__Buttons > button {
+    margin: 5px;
+    margin-right: 5px;
+    height: 20px;
+    width: 50px;
 }

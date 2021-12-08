@@ -1,13 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './VideoCard.css';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import { Link } from 'react-router-dom';
 import EditVideoModal from './EditVideoModal';
 import Dummy from '../imgs/1111.jpg';
 
 function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
 
+    const [admin, setAdmin] = useState(null);
     const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                //user has logged in
+                setAdmin(authUser);
+            } else {
+                //user is logged out
+                setAdmin(null);
+            }
+        })
+
+        return () => {
+            // perform clean up actions
+            unsubscribe();
+        }
+    }, [admin]);
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete?')) {
@@ -30,8 +48,17 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
                     height="200px"
                 />
             </Link>
-            <button onClick={() => setShow(true)}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <div>
+                {admin ? (
+                    <div className='Admin__Buttons'>
+                        <button onClick={() => setShow(true)}>Edit</button>
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
+
+            </div>
             <div className='Modal'>
                 <EditVideoModal onClose={() => setShow(false)} show={show} id={id} />
             </div>
