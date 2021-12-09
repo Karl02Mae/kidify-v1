@@ -5,13 +5,18 @@ import './EditAnnounceModal.css';
 function EditAnnounceModal(props) {
 
     const handleEdit = () => {
-        db.collection('announce').doc(props.id).update({
-            title: newTitle,
-            caption: newCapt,
-        })
+        if (newTitle === '' || newCapt === '') {
+            alert('Please Input new Details!');
+        } else {
+            db.collection('announce').doc(props.id).update({
+                title: newTitle,
+                caption: newCapt,
+            })
 
-        setNewTitle('');
-        setNewCapt('');
+            alert('Editted Successfully!')
+            setNewTitle('');
+            setNewCapt('');
+        }
     }
 
     const [newTitle, setNewTitle] = useState('');

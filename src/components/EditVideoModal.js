@@ -5,13 +5,18 @@ import './EditVideoModal.css';
 function EditVideoModal(props) {
 
     const handleEdit = () => {
-        db.collection('videos').doc(props.id).update({
-            videoTitle: newTitle,
-            videoCaption: newCapt,
-        })
+        if (newTitle === '' || newCapt === '') {
+            alert('Please Fill all details!');
+        } else {
+            db.collection('videos').doc(props.id).update({
+                videoTitle: newTitle,
+                videoCaption: newCapt,
+            })
 
-        setNewTitle('');
-        setNewCapt('');
+            alert('Editted Successfully!');
+            setNewTitle('');
+            setNewCapt('');
+        }
     }
 
     const [newTitle, setNewTitle] = useState('');

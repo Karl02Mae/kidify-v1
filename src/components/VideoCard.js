@@ -31,6 +31,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
         if (window.confirm('Are you sure you want to delete?')) {
             db.collection('videos').doc(id).delete().then(() => {
                 console.log('Announcement Successfully Deleted')
+                alert('Deleted Successfully!');
             }).catch((error) => {
                 console.error('Error Removing Announcement', error)
             })

@@ -31,6 +31,7 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
         if (window.confirm('Are you sure you want to delete?')) {
             db.collection('announce').doc(id).delete().then(() => {
                 console.log('Announcement Successfully Deleted')
+                alert('Deleted Successfully!');
             }).catch((error) => {
                 console.error('Error Removing Announcement', error)
             })

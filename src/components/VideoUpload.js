@@ -27,55 +27,62 @@ function VideoUpload() {
         } else {
             const uploadTaskVideo = storage.ref('videos/' + video.name).put(video);
 
-            uploadTaskVideo.on(
-                "state_changed",
-                (snapshot) => {
-                    //progress function...
-                    const videoProgress = Math.round(
-                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                    );
-                    setVideoProgress(videoProgress);
-                },
-                (error) => {
-                    //Error Function...
-                    console.log(error);
-                    alert(error.message);
-                },
-                () => {
-                    //complete function..
+            if (videoTitle === '' || videoCaption === '' || videoDate === '') {
+                alert('Please Enter Video Details!');
+            } else {
 
-                    storage.ref("videos")
-                        .child(video.name)
-                        .getDownloadURL()
-                        .then(function (vidUrl) {
-                            var xhr = new XMLHttpRequest();
-                            xhr.responseType = 'blob';
-                            xhr.onload = function (event) {
-                                var blob = xhr.response;
-                                console.log(blob);
-                            };
-                            xhr.open('GET', vidUrl);
-                            xhr.send();
-                            console.log(vidUrl);
+                uploadTaskVideo.on(
+                    "state_changed",
+                    (snapshot) => {
+                        //progress function...
+                        const videoProgress = Math.round(
+                            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                        );
+                        setVideoProgress(videoProgress);
+                    },
+                    (error) => {
+                        //Error Function...
+                        console.log(error);
+                        alert(error.message);
+                    },
+                    () => {
+                        //complete function..
+
+                        storage.ref("videos")
+                            .child(video.name)
+                            .getDownloadURL()
+                            .then(function (vidUrl) {
+                                var xhr = new XMLHttpRequest();
+                                xhr.responseType = 'blob';
+                                xhr.onload = function (event) {
+                                    var blob = xhr.response;
+                                    console.log(blob);
+                                };
+                                xhr.open('GET', vidUrl);
+                                xhr.send();
+                                console.log(vidUrl);
 
 
-                            db.collection("videos").add({
-                                videoCaption: videoCaption,
-                                videoDate: videoDate,
-                                videoTitle: videoTitle,
-                                videoUrl: vidUrl
+                                db.collection("videos").add({
+                                    videoCaption: videoCaption,
+                                    videoDate: videoDate,
+                                    videoTitle: videoTitle,
+                                    videoUrl: vidUrl
+                                });
+
+                                alert('Upload Success!');
+
+                                setVideoCaption("");
+                                setVideoTitle("");
+                                setVideoDate('');
+                                setVideoProgress(0);
+                                history.push('/videos');
+                            }).catch((error) => {
+                                console.log(error);
                             });
-
-                            setVideoCaption("");
-                            setVideoTitle("");
-                            setVideoDate('');
-                            setVideoProgress(0);
-                            history.push('/videos');
-                        }).catch((error) => {
-                            console.log(error);
-                        });
-                }
-            );
+                    }
+                );
+            }
         }
     };
 
@@ -84,8 +91,8 @@ function VideoUpload() {
             <progress className="videoUpload__video__progress" value={videoProgress} max="100" />
             <p className="videoUpload__fileLabel">Upload Video</p>
             <input className="videoUpload__video" type="file" accept="video/mp4" onChange={videoHandleChange} />
-            <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} />
-            <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} />
+            <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
+            <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
             <input className="videoUpload__date" type="date" onChange={event => setVideoDate(event.target.value)} value={videoDate} />
             <Button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video
