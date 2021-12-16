@@ -64,7 +64,7 @@ function HomePage() {
                         data-react-helmet="true"
                     />
                 </Helmet>
-                <h2>Announcements and Notifications</h2>
+                <h2>Verse of the day</h2>
                 <div className="HomePage__Notif">
                     {
                         posts.map(({ id, data }) => (

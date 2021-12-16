@@ -80,4 +80,4 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
     )
 }
 
-export default NotifCard
+export default NotifCard;

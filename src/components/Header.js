@@ -8,9 +8,11 @@ import './Header.css';
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from '@material-ui/icons/Search';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
 import Avatar from '@material-ui/core/Avatar';
+import Tooltip from '@mui/material/Tooltip';
 import { Button } from '@material-ui/core';
+
+import AddAlertIcon from '@material-ui/icons/AddAlert';
 
 import { auth } from '../firebase';
 
@@ -58,13 +60,15 @@ function Header() {
                 {/* Burger Menu and Logo */}
                 <div className="header__left">
                     <MenuIcon />
-                    <Link to='/'>
-                        <img
-                            src={KDFLogo}
-                            alt="Kidify Logo"
-                            className="header__logo"
-                        />
-                    </Link>
+                    <Tooltip title='Home'>
+                        <Link to='/'>
+                            <img
+                                src={KDFLogo}
+                                alt="Kidify Logo"
+                                className="header__logo"
+                            />
+                        </Link>
+                    </Tooltip>
                 </div>
 
                 {/* Textbox and Search Icon */}
@@ -83,8 +87,8 @@ function Header() {
                 {/* Upload, Alert and Profile */}
                 {displayName === 'KidifyAdmin2021' ? (
                     <div className="header__icons">
-                        <Link to="/uploadvideos"> <VideoCallIcon className="header__icon" /> </Link>
-                        <Link to="/newannounce"><AddAlertIcon className="header__icon" /></Link>
+                        <Tooltip title='Upload Verse of the day'><Link to="/newannounce"><AddAlertIcon className="upload__icon" /></Link></Tooltip>
+                        <Tooltip title='Upload Video'><Link to="/uploadvideos"><VideoCallIcon className="header__icon" /> </Link></Tooltip>
                         <Avatar className="header__icon"
                             alt="Profile Picture"
                             src=""

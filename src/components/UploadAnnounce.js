@@ -52,7 +52,7 @@ function UploadAnnounce() {
                         data-react-helmet="true"
                     />
                 </Helmet>
-                <h1 className="title">Upload New Announcement</h1>
+                <h1 className="title">Upload Verse of the Day</h1>
                 {user?.displayName ? (
                     <AnnounceImageUpload username={user.displayName} />
                 ) : (
