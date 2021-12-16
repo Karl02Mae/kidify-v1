@@ -8,6 +8,7 @@ import Dummy from '../imgs/1111.jpg';
 function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
 
     const [admin, setAdmin] = useState(null);
+    const [displayName, setDisplayName] = useState('');
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -15,6 +16,14 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             if (authUser) {
                 //user has logged in
                 setAdmin(authUser);
+                auth.onAuthStateChanged((currentUser) => {
+                    if (currentUser) {
+                        setDisplayName(currentUser.displayName);
+                        console.log(displayName);
+                    } else {
+                        setDisplayName('');
+                    }
+                })
             } else {
                 //user is logged out
                 setAdmin(null);
@@ -25,7 +34,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             // perform clean up actions
             unsubscribe();
         }
-    }, [admin]);
+    }, [admin]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete?')) {
@@ -50,7 +59,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
                 />
             </Link>
             <div>
-                {admin ? (
+                {displayName === 'KidifyAdmin2021' ? (
                     <div className='Admin__Buttons'>
                         <button onClick={() => setShow(true)}>Edit</button>
                         <button onClick={handleDelete}>Delete</button>

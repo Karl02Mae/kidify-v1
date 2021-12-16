@@ -7,6 +7,7 @@ import './NotifCard.css';
 function NotifCard({ user, imageUrl, title, date, message, id }) {
 
     const [admin, setAdmin] = useState(null);
+    const [displayName, setDisplayName] = useState('');
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -14,6 +15,14 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
             if (authUser) {
                 //user has logged in
                 setAdmin(authUser);
+                auth.onAuthStateChanged((currentUser) => {
+                    if (currentUser) {
+                        setDisplayName(currentUser.displayName);
+                        console.log(displayName);
+                    } else {
+                        setDisplayName('');
+                    }
+                })
             } else {
                 //user is logged out
                 setAdmin(null);
@@ -24,7 +33,7 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
             // perform clean up actions
             unsubscribe();
         }
-    }, [admin]);
+    }, [admin]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
     const handleDelete = () => {
@@ -45,7 +54,7 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
         <div className="NotifCard">
             <img className="NotifCard__thumbnail" src={imageUrl} alt="thumbnail" height="200px" />
             <div>
-                {admin ? (
+                {displayName === 'KidifyAdmin2021' ? (
                     <div className="Admin__Buttons">
                         <button className='EditButton' onClick={() => setShow(true)}>Edit</button>
                         <button className='DeleteButton' onClick={handleDelete}>Delete</button>

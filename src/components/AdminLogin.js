@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminLogin.css';
@@ -10,10 +10,31 @@ function AdminLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            const push = () => {
+                history.push('/');
+            }
+            if (authUser) {
+                //user has logged in
+                push();
+            } else {
+                //user is logged out
+                console.log('Log in!')
+            }
+        })
+
+        return () => {
+            // perform clean up actions
+            unsubscribe();
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
     const login = (event) => {
         event.preventDefault();
 
         auth.signInWithEmailAndPassword(email, password).then((auth) => {
+            alert('Logged in successfully!')
             history.push("/")
         }).catch((e) => {
             if (e.message === "Firebase: The email address is badly formatted. (auth/invalid-email).") {
@@ -56,9 +77,6 @@ function AdminLogin() {
             </Helmet>
             <div className="login_container">
                 <h3>Log In to KIDIFY!</h3>
-                <h3 className="alert">Alert! Only Admin has to log in!
-                    <br /> if you are not an admin, <Link to='/'>click here</Link>
-                </h3>
                 <form>
                     <center>
                         <input type="email" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} />
@@ -74,6 +92,8 @@ function AdminLogin() {
                     <center>
                         <div className="sideInfo">
                             <h5>Forgot Password ?</h5>
+                            <h5>|</h5>
+                            <Link to='/register'><h5>Don't have an account yet? Register now!</h5></Link>
                         </div>
                     </center>
                 </form>

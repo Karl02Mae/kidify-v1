@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import KDFLogo from '../imgs/kidify.png';
 import './Header.css';
+// import { onAuthStateChanged } from 'firebase/auth';
 
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from '@material-ui/icons/Search';
@@ -17,6 +18,7 @@ import { auth } from '../firebase';
 function Header() {
 
     const [user, setUser] = useState(null);
+    const [displayName, setDisplayName] = useState('');
 
     const history = useHistory();
 
@@ -25,9 +27,18 @@ function Header() {
             if (authUser) {
                 //user has logged in
                 setUser(authUser);
+                auth.onAuthStateChanged((currentUser) => {
+                    if (currentUser) {
+                        setDisplayName(currentUser.displayName);
+                        console.log(displayName);
+                    } else {
+                        setDisplayName('');
+                    }
+                })
             } else {
                 //user is logged out
                 setUser(null);
+                history.push('login');
             }
         })
 
@@ -35,7 +46,7 @@ function Header() {
             // perform clean up actions
             unsubscribe();
         }
-    }, [user]);
+    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const [inputSearch, setInputSearch] = useState('');
     if (window.location.pathname === '/login' || window.location.pathname === '/registerKidifyAdmin') {
@@ -70,7 +81,7 @@ function Header() {
                 </div>
 
                 {/* Upload, Alert and Profile */}
-                {user ? (
+                {displayName === 'KidifyAdmin2021' ? (
                     <div className="header__icons">
                         <Link to="/uploadvideos"> <VideoCallIcon className="header__icon" /> </Link>
                         <Link to="/newannounce"><AddAlertIcon className="header__icon" /></Link>
@@ -78,14 +89,25 @@ function Header() {
                             alt="Profile Picture"
                             src=""
                         />
-                        <Button onClick={() => auth.signOut()}>
+                        <Button onClick={() => {
+                            if (window.confirm('Log out?') === true) {
+                                alert("logged out!");
+                                auth.signOut();
+                                history.push('/login');
+                            } else {
+                                alert('Cancelled!');
+                            }
+                        }}>
                             Logout
                         </Button>
                     </div>
                 ) : (
                     <div className="home__loginContainer">
-                        <Button onClick={() => { history.push('/login') }}>
-                            Log In
+                        <Button onClick={() => {
+                            auth.signOut();
+                            history.push('/login');
+                        }}>
+                            Logout
                         </Button>
                     </div>
                 )}

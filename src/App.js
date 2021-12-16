@@ -33,7 +33,7 @@ function App() {
 
           </Route>
 
-          <Route path="/registerKidifyAdmin">
+          <Route path="/register">
 
             <AdminRegister />
 

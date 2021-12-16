@@ -77,7 +77,11 @@ function AdminRegister() {
                     <center>
                         <input
                             onChange={(e) => {
-                                setUsername(e.target.value);
+                                if (e.target.value === 'KidifyAdmin2021') {
+                                    alert('You cannot use this username!');
+                                } else {
+                                    setUsername(e.target.value);
+                                }
                             }}
                             className="register_username"
                             type="username"
