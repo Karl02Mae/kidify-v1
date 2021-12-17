@@ -62,14 +62,6 @@ function Comments() {
 
     return (
         <div>
-            <div className="post__comments">
-                {comments.map(({ id, data }) => (
-                    <p key={id}>
-                        <strong>{data.username}</strong> {data.text}
-                    </p>
-                ))}
-            </div>
-
             {user && (
                 <form className="post__commentBox">
                     <input
@@ -89,6 +81,16 @@ function Comments() {
                     </button>
                 </form>
             )}
+
+            <div className="post__comments">
+                {comments.map(({ id, data }) => (
+                    <p key={id}>
+                        <strong>{data.username}</strong> {data.text}
+                    </p>
+                ))}
+            </div>
+
+
         </div>
     )
 }
