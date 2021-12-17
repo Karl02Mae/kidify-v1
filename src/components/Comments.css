@@ -1,0 +1,12 @@
+.post__comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.post__comments > p {
+    padding-bottom: 10px;
+}
+
+.post__commentBox {
+    padding: 20px;
+}

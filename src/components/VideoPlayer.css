@@ -37,3 +37,17 @@
     font-size: 18px;
     font-weight: 400;
 }
+
+.Comments > .commentTitle > hr {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.commentTitle > h3 {
+    padding-left: 40px;
+}
+
+.comment__container {
+    margin-left: 40px;
+}

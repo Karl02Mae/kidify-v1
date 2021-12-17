@@ -60,7 +60,7 @@ function App() {
             </div>
           </Route>
 
-          <Route path="/play/:id/:url">
+          <Route path="/play/:id/">
             <div className="app__page">
               <VideoPlayer />
             </div>

@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Comments from './Comments';
 import {
     FacebookShareButton, FacebookIcon,
     FacebookMessengerShareButton,
@@ -87,7 +88,13 @@ function VideoPlayer() {
                 </div>
                 <hr />
                 <div className='Comments'>
-                    {/* DISQUS PLUGIN WILL BE INSTALLED HERE */}
+                    <div className='commentTitle'>
+                        <h3>Comments</h3>
+                        <hr />
+                    </div>
+                    <div className='comment__container'>
+                        <Comments id={id} />
+                    </div>
                 </div>
             </div>
         </HelmetProvider>)

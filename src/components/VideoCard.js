@@ -7,7 +7,7 @@ import Dummy from '../imgs/1111.jpg';
 
 function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
 
-    const [admin, setAdmin] = useState(null);
+    const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [show, setShow] = useState(false);
 
@@ -15,7 +15,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
                 //user has logged in
-                setAdmin(authUser);
+                setUser(authUser);
                 auth.onAuthStateChanged((currentUser) => {
                     if (currentUser) {
                         setDisplayName(currentUser.displayName);
@@ -26,7 +26,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
                 })
             } else {
                 //user is logged out
-                setAdmin(null);
+                setUser(null);
             }
         })
 
@@ -34,7 +34,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             // perform clean up actions
             unsubscribe();
         }
-    }, [admin]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete?')) {
@@ -51,7 +51,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
 
     return (
         <div className="videoCard">
-            <Link to={{ pathname: `/play/${id}/${videoUrl}` }}>
+            <Link to={{ pathname: `/play/${id}/` }}>
                 <img className="videoCard__thumbnail"
                     src={Dummy}
                     alt="Thumbnail"
@@ -74,7 +74,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             </div>
             <div className="video__info">
                 <div className="video__text">
-                    <Link to={{ pathname: `/play/${id}/${videoUrl}` }}>
+                    <Link to={{ pathname: `/play/${id}/` }}>
                         <h4>{videoTitle}</h4>
                     </Link>
                     <p>
