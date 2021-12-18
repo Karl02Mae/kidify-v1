@@ -60,7 +60,7 @@ function AnnounceImageUpload({ username }) {
                                     date: date,
                                     username: username
                                 });
-                                
+
                                 alert('Upload Success!');
                                 setProgress(0);
                                 setCaption("");
@@ -81,7 +81,7 @@ function AnnounceImageUpload({ username }) {
         <div className="imageupload">
             <progress className="imageupload__progress" value={progress} max="100" />
             <p className="upload">Upload Announcement Image</p>
-            <input className="imageupload__button" type="file" onChange={handleChange} />
+            <input className="imageupload__button" type="file" accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
             <input className="imageupload__title" type="text" placeholder="Enter Announcement Title" onChange={event => setTitle(event.target.value)} value={title} required />
             <textarea className="imageupload__text" type="text" placeholder="Enter a message..." onChange={event => setCaption(event.target.value)} value={caption} required />
             <input className="imageupload__date" type="date" onChange={event => setDate(event.target.value)} value={date} />

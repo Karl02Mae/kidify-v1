@@ -61,9 +61,10 @@
     transition: 1s;
 }
 
-.header__icon {
+.header__avatar {
     margin-right: 8px;
     cursor: pointer;
+    border: solid 1px #ffffff;
 }
 
 .home__userContainer {

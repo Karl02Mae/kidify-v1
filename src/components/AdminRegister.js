@@ -38,6 +38,7 @@ function AdminRegister() {
             .then((authUser) => {
                 return authUser.user.updateProfile({
                     displayName: username,
+                    photoURL:null,
                 })
 
             }).catch((error) => alert(error.message));

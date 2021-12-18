@@ -2,12 +2,20 @@ import React from 'react';
 import './ProfileModal.css';
 import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 
 function ProfileModal(props) {
 
     const history = useHistory();
+
+    const handleClick = () => {
+        if (window.confirm('Are you sure you want to edit your profile?\nYou must fill all details again to update') === true) {
+            history.push('/profile')
+        } else {
+            alert('Cancelled!')
+        }
+    }
 
     if (props.show === false) {
         return null
@@ -20,14 +28,14 @@ function ProfileModal(props) {
                         <Avatar
                             className='profile__picture'
                             alt='profile picture'
-                            src=''
+                            src={props.url}
                         />
                     </center>
                     <h3>{props.username}</h3>
                 </div>
                 <hr />
                 <div className='profile__settings'>
-                    <Link to='/profile' onClick={props.onClose}><h3>Profile Settings</h3></Link>
+                    <h3 onClick={() => { props.onClose(); handleClick(); }}>Profile Settings</h3>
                 </div>
                 <div className='profile__logout'>
                     <Button onClick={() => {

@@ -20,11 +20,13 @@ function Header() {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
+    const [userImage, setUserImage] = useState('');
     const [show, setShow] = useState(false);
 
     const history = useHistory();
 
     const handleClick = () => {
+        console.log(user);
         if (show === false) {
             setShow(true);
         } else if (show === true) {
@@ -37,6 +39,7 @@ function Header() {
             if (authUser) {
                 //user has logged in
                 setUser(authUser);
+                setUserImage(authUser.photoURL);
                 auth.onAuthStateChanged((currentUser) => {
                     if (currentUser) {
                         setDisplayName(currentUser.displayName);
@@ -96,24 +99,24 @@ function Header() {
                     <div className="header__icons">
                         <Tooltip title='Upload Verse of the day'><Link to="/newannounce"><AddAlertIcon className="upload__icon" /></Link></Tooltip>
                         <Tooltip title='Upload Video'><Link to="/uploadvideos"><VideoCallIcon className="header__icon" /> </Link></Tooltip>
-                        <Avatar className="header__icon"
+                        <Avatar className="header__avatar"
                             alt="Profile Picture"
-                            src=""
+                            src={userImage}
                             onClick={handleClick}
                         />
                     </div>
                 ) : (
 
                     <div className="home__userContainer">
-                        <Avatar className="header__icon"
+                        <Avatar className="header__avatar"
                             alt="Profile Picture"
-                            src=""
+                            src={userImage}
                             onClick={handleClick}
                         />
                     </div>
                 )}
                 <div className='modal'>
-                    <ProfileModal onClose={() => setShow(false)} show={show} username={displayName}/>
+                    <ProfileModal onClose={() => setShow(false)} show={show} username={displayName} url={userImage} />
                 </div>
             </div>
         )
