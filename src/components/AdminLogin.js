@@ -56,12 +56,12 @@ function AdminLogin() {
                 <title>Kidify - Log In </title>
                 <meta
                     name="description"
-                    content="Log in to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
                     data-react-helmet="true"
                 />
                 <meta
                     property="og:description"
-                    content="Log in to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
                     data-react-helmet="true"
                 />
                 <meta

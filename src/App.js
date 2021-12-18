@@ -15,6 +15,7 @@ import AdminRegister from './components/AdminRegister';
 import UploadAnnounce from './components/UploadAnnounce';
 import VideoUploadPage from './components/VideoUploadPage';
 import VideoPlayer from './components/VideoPlayer';
+import UserProfile from './components/UserProfile';
 
 function App() {
 
@@ -37,6 +38,12 @@ function App() {
 
             <AdminRegister />
 
+          </Route>
+
+          <Route path="/profile">
+            <div className='app__page'>
+              <UserProfile />
+            </div>
           </Route>
 
           <Route path="/search/:searchTerm">

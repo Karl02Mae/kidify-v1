@@ -3,14 +3,13 @@ import { Link, useHistory } from 'react-router-dom';
 
 import KDFLogo from '../imgs/kidify.png';
 import './Header.css';
+import ProfileModal from './ProfileModal';
 // import { onAuthStateChanged } from 'firebase/auth';
 
-import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from '@material-ui/icons/Search';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import Avatar from '@material-ui/core/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import { Button } from '@material-ui/core';
 
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 
@@ -21,8 +20,17 @@ function Header() {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
+    const [show, setShow] = useState(false);
 
     const history = useHistory();
+
+    const handleClick = () => {
+        if (show === false) {
+            setShow(true);
+        } else if (show === true) {
+            setShow(false);
+        }
+    }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -59,7 +67,6 @@ function Header() {
             <div className="header">
                 {/* Burger Menu and Logo */}
                 <div className="header__left">
-                    <MenuIcon />
                     <Tooltip title='Home'>
                         <Link to='/'>
                             <img
@@ -92,31 +99,22 @@ function Header() {
                         <Avatar className="header__icon"
                             alt="Profile Picture"
                             src=""
+                            onClick={handleClick}
                         />
-                        <Button onClick={() => {
-                            if (window.confirm('Log out?') === true) {
-                                alert("logged out!");
-                                auth.signOut();
-                                history.push('/login');
-                            } else {
-                                alert('Cancelled!');
-                            }
-                        }}>
-                            Logout
-                        </Button>
                     </div>
                 ) : (
-                    <div className="home__loginContainer">
-                        <Button onClick={() => {
-                            auth.signOut();
-                            history.push('/login');
-                        }}>
-                            Logout
-                        </Button>
+
+                    <div className="home__userContainer">
+                        <Avatar className="header__icon"
+                            alt="Profile Picture"
+                            src=""
+                            onClick={handleClick}
+                        />
                     </div>
                 )}
-
-
+                <div className='modal'>
+                    <ProfileModal onClose={() => setShow(false)} show={show} username={displayName}/>
+                </div>
             </div>
         )
 }

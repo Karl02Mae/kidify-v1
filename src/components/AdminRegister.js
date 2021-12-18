@@ -50,12 +50,12 @@ function AdminRegister() {
                 <title>Kidify - Admin Register </title>
                 <meta
                     name="description"
-                    content="Register to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    content="Register to KIDIFY!. Register to kidify and log in to view contents!."
                     data-react-helmet="true"
                 />
                 <meta
                     property="og:description"
-                    content="Register to KIDIFY!. if you are not an admin of this page, then please visit https://kidifyv1.netlify.app/."
+                    content="Register to KIDIFY!. Register to kidify and log in to view contents!."
                     data-react-helmet="true"
                 />
                 <meta

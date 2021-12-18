@@ -9,7 +9,9 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: white;
+    background-color: #28282b;
+    border-bottom: solid 1px black;
+    box-shadow: 0px 5px rgba(0,0,0,0.3);
 }
 
 .header__left {
@@ -28,11 +30,13 @@
     align-items: center;
     width: 45%;
     border: 1px solid lightgray;
+    background-color: white;
 }
 
 .header__input > input {
     flex: 1;
     border: none;
+    outline: none;
 }
 
 .header__inputButton {
@@ -46,6 +50,31 @@
     align-items: center;
 }
 
+.header__icons > * {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #D4AF37;
+}
+
+.header__icons > *:hover {
+    color: white;
+    transition: 1s;
+}
+
 .header__icon {
     margin-right: 8px;
+    cursor: pointer;
+}
+
+.home__userContainer {
+    display: flex;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
