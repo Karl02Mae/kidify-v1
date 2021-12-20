@@ -51,7 +51,7 @@ function Header() {
             } else {
                 //user is logged out
                 setUser(null);
-                history.push('login');
+                history.push('/login');
             }
         })
 

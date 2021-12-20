@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import { auth } from './firebase';
 
-//Components
+//Components for Web View
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Sidebar2 from './components/Sidebar2';
@@ -17,83 +17,114 @@ import VideoUploadPage from './components/VideoUploadPage';
 import VideoPlayer from './components/VideoPlayer';
 import UserProfile from './components/UserProfile';
 
+//Components for Mobile View
+import MobileLogin from './Mobile_View/MobileLogin';
+import MobileHeader from './Mobile_View/MobileHeader';
+import MobileHome from './Mobile_View/MobileHome';
+
 function App() {
 
-  return (
-    <div className="app">
+  if (window.innerWidth < 767.98) {
+    return (
+      <div className='mobile'>
 
-      <Router>
+        <Router>
 
-        <Header />
+          <Switch>
 
-        <Switch>
+            <Route path='/login'>
+              <MobileLogin />
+            </Route>
 
-          <Route path="/login">
+            <Route path='/' exact>
+              <MobileHeader />
+              <MobileHome />
+            </Route>
 
-            <AdminLogin />
+          </Switch>
 
-          </Route>
+        </Router>
 
-          <Route path="/register">
+      </div>
+    )
+  } else {
 
-            <AdminRegister />
+    return (
+      <div className="app">
 
-          </Route>
+        <Router>
 
-          <Route path="/profile">
-            <div className='app__page'>
-              <UserProfile />
-            </div>
-          </Route>
+          <Header />
 
-          <Route path="/search/:searchTerm">
-            <div className="app__page">
-              <Sidebar />
-              <SearchPage />
-            </div>
-          </Route>
+          <Switch>
 
-          <Route path="/uploadvideos">
-            <div className="app__page">
-              <Sidebar />
-              <VideoUploadPage />
-            </div>
-          </Route>
+            <Route path="/login">
 
-          <Route path="/videos">
-            <div className="app__page">
-              <Sidebar2 />
-              <Videos />
-            </div>
-          </Route>
+              <AdminLogin />
 
-          <Route path="/play/:id/">
-            <div className="app__page">
-              <VideoPlayer />
-            </div>
-          </Route>
+            </Route>
 
-          <Route path="/newannounce">
-            <div className="app__page">
-              <Sidebar />
-              <UploadAnnounce />
-            </div>
-          </Route>
+            <Route path="/register">
 
-          <Route path="/" exact>
-            <div className="app__page">
-              <Sidebar />
-              <HomePage />
-            </div>
-          </Route>
+              <AdminRegister />
 
-        </Switch>
-      </Router>
+            </Route>
+
+            <Route path="/profile">
+              <div className='app__page'>
+                <UserProfile />
+              </div>
+            </Route>
+
+            <Route path="/search/:searchTerm">
+              <div className="app__page">
+                <Sidebar />
+                <SearchPage />
+              </div>
+            </Route>
+
+            <Route path="/uploadvideos">
+              <div className="app__page">
+                <Sidebar />
+                <VideoUploadPage />
+              </div>
+            </Route>
+
+            <Route path="/videos">
+              <div className="app__page">
+                <Sidebar2 />
+                <Videos />
+              </div>
+            </Route>
+
+            <Route path="/play/:id/">
+              <div className="app__page">
+                <VideoPlayer />
+              </div>
+            </Route>
+
+            <Route path="/newannounce">
+              <div className="app__page">
+                <Sidebar />
+                <UploadAnnounce />
+              </div>
+            </Route>
+
+            <Route path="/" exact>
+              <div className="app__page">
+                <Sidebar />
+                <HomePage />
+              </div>
+            </Route>
+
+          </Switch>
+        </Router>
 
 
 
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
