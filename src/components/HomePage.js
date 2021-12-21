@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
-//import AnnounceImageUpload from './AnnounceImageUpload';
 import './HomePage.css';
 import NotifCard from './NotifCard';
 import { Helmet, HelmetProvider } from 'react-helmet-async';

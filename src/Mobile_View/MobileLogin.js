@@ -8,6 +8,7 @@ import {
     Button,
     TextField,
 } from '@mui/material';
+import logo from '../imgs/logo.png';
 
 
 const style = {
@@ -24,7 +25,7 @@ const style = {
     },
     Texts: {
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: 5,
     },
     loginText: {
         fontSize: '14px',
@@ -130,6 +131,7 @@ function MobileLogin() {
                 />
             </Helmet>
             <Box sx={style.Texts}>
+                <img src={logo} alt='Logo' height='200px' />
                 <Typography sx={style.loginText}>Login to Kidify!</Typography>
             </Box>
             <Box sx={style.textFieldContainer}>

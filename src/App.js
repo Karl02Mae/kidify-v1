@@ -21,6 +21,9 @@ import UserProfile from './components/UserProfile';
 import MobileLogin from './Mobile_View/MobileLogin';
 import MobileHeader from './Mobile_View/MobileHeader';
 import MobileHome from './Mobile_View/MobileHome';
+import MobileRegister from './Mobile_View/MobileRegister';
+import MobileFooter from './Mobile_View/MobileFooter';
+import MobileVideos from './Mobile_View/MobileVideos';
 
 function App() {
 
@@ -32,13 +35,24 @@ function App() {
 
           <Switch>
 
+            <Route path='/register'>
+              <MobileRegister />
+            </Route>
+
             <Route path='/login'>
               <MobileLogin />
+            </Route>
+
+            <Route path='/videos'>
+              <MobileHeader />
+              <MobileVideos />
+              <MobileFooter />
             </Route>
 
             <Route path='/' exact>
               <MobileHeader />
               <MobileHome />
+              <MobileFooter />
             </Route>
 
           </Switch>

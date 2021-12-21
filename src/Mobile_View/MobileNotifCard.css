@@ -1,0 +1,43 @@
+.MobileNotifCard {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 50px;
+}
+
+.MobileNotifCard__thumbnail {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 93vw;
+    height: fit-content;
+}
+
+.MobileNotif__info {
+    display: flex;
+}
+
+.MobileNotif__text {
+    padding-left: 15px;
+}
+
+.MobileNotif__text>h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.MobileNotif__text__uid {
+    font-size: 11px;
+    color: gray;
+}
+
+.MobileNotif__text__time {
+    font-size: 11px;
+    color: gray;
+}
+
+.MobileNotif__text__message {
+    font-size: 14px;
+    color: #444444;
+    font-weight: bold;
+    white-space: pre-line;
+}
