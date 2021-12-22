@@ -24,6 +24,10 @@ import MobileHome from './Mobile_View/MobileHome';
 import MobileRegister from './Mobile_View/MobileRegister';
 import MobileFooter from './Mobile_View/MobileFooter';
 import MobileVideos from './Mobile_View/MobileVideos';
+import MobileProfileSettings from './Mobile_View/MobileProfileSettings';
+import MobileVerseUpload from './Mobile_View/MobileVerseUpload';
+import MobileVideoUpload from './Mobile_View/MobileVideoUpload';
+import MobileVideoPlayer from './Mobile_View/MobileVideoPlayer';
 
 function App() {
 
@@ -43,10 +47,26 @@ function App() {
               <MobileLogin />
             </Route>
 
+            <Route path='/profile'>
+              <MobileProfileSettings />
+            </Route>
+
+            <Route path='/uploadverse'>
+              <MobileVerseUpload />
+            </Route>
+
+            <Route path='/uploadvideos'>
+              <MobileVideoUpload />
+            </Route>
+
             <Route path='/videos'>
               <MobileHeader />
               <MobileVideos />
               <MobileFooter />
+            </Route>
+
+            <Route path='/play/:id'>
+              <MobileVideoPlayer />
             </Route>
 
             <Route path='/' exact>

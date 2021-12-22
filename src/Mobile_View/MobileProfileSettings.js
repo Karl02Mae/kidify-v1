@@ -1,15 +1,16 @@
-import { Button } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import './MobileProfileSettings.css';
 import { storage, auth } from '../firebase';
-import './UserProfile.css';
 
-function UserProfile() {
+function MobileProfileSettings() {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [newUserN, setNewUserN] = useState('');
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
+    const history = useHistory();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -33,6 +34,12 @@ function UserProfile() {
     const handleChange = (e) => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
+        }
+    }
+
+    const handleCancel = () => {
+        if (window.confirm('Cancel Update?') === true) {
+            history.push('/');
         }
     }
 
@@ -77,6 +84,7 @@ function UserProfile() {
 
                                     alert('Update Success!');
                                     setNewUserN('');
+                                    history.push('/');
                                     window.location.reload();
                                 }).catch((error) => {
                                     console.log(error);
@@ -89,18 +97,21 @@ function UserProfile() {
     };
 
     return (
-        <div className='container'>
-            <div className='contain'>
-                <h2>Upload Profile Image</h2>
-                <input className='upload__Image' type='file' accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
-                <progress className="update__Progress" value={progress} max="100" />
-                <h2>Update Username</h2>
-                <input className='update__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
+        <div className='ProfileSettingsContainer'>
+            <div className='ProfileContainer'>
+                <h3 className='labels'>Upload New Profile Picture</h3>
+                <progress className="mobileUpdate__Progress" value={progress} max="100" />
+                <input className='mobileUpload__Image' type='file' accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
+                <h3 className='labels'>Update Username</h3>
+                <input className='mobileUpdate__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
                 <br />
-                <Button className='Button' onClick={handleUpload}>Update Profile</Button>
+                <div className='buttons'>
+                    <h3 className='UpdateButton' onClick={handleUpload}>Update Profile</h3>
+                    <h3 className='CancelUpdate' onClick={handleCancel}>Cancel</h3>
+                </div>
             </div>
         </div>
     )
 }
 
-export default UserProfile
+export default MobileProfileSettings

@@ -11,6 +11,7 @@ import {
 import KDFLogo from '../imgs/logo.png';
 import { Avatar } from '@material-ui/core';
 import SearchIcon from '@mui/icons-material/Search';
+import MobileHeaderProfile from './MobileHeaderProfile';
 // import VideoCallIcon from '@material-ui/icons/VideoCall';
 //import Tooltip from '@mui/material/Tooltip';
 // import AddAlertIcon from '@material-ui/icons/AddAlert';
@@ -19,7 +20,7 @@ const style = {
     root: {
         display: 'flex',
         position: '-webkit-sticky', // eslint-disable-next-line
-        position: 'sticky', 
+        position: 'sticky',
         top: 0,
         zIndex: 5,
         flex: 1,
@@ -60,13 +61,23 @@ const style = {
         border: 'solid 2px white',
         borderRadius: '25px'
     },
+    ProfileModal: {
+
+    }
 }
 
 function MobileHeader() {
     const history = useHistory();
+    const [show, setShow] = useState(false);
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [userImage, setUserImage] = useState('');
+
+    const handleClick = () => {
+        if (show === false) {
+            setShow(true);
+        }
+    }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -74,14 +85,7 @@ function MobileHeader() {
                 //user has logged in
                 setUser(authUser);
                 setUserImage(authUser.photoURL);
-                auth.onAuthStateChanged((currentUser) => {
-                    if (currentUser) {
-                        setDisplayName(currentUser.displayName);
-                        console.log(displayName);
-                    } else {
-                        setDisplayName('');
-                    }
-                })
+                setDisplayName(authUser.displayName);
             } else {
                 //user is logged out
                 setUser(null);
@@ -93,7 +97,7 @@ function MobileHeader() {
             // perform clean up actions
             unsubscribe();
         }
-    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [user, displayName, history]);
 
 
     return (
@@ -103,13 +107,13 @@ function MobileHeader() {
                     <img src={KDFLogo}
                         alt='LOGO'
                         height='50px'
+                        onClick={() => history.push('/')}
                     />
                 </Box>
                 <Box sx={style.right}>
                     <Box sx={style.mid}>
                         <Box sx={style.search} >
                             <input className='searchBox' type='text'
-                                onChange=''
                                 placeholder='Search'
                             />
                             <SearchIcon />
@@ -119,13 +123,13 @@ function MobileHeader() {
                         <Avatar
                             alt='profile picture'
                             src={userImage}
-                            onClick=''
+                            onClick={handleClick}
                         />
                     </Box>
                 </Box>
             </Box>
-            <Box sx={style.activeSearch}>
-
+            <Box sx={style.ProfileModal}>
+                <MobileHeaderProfile onClose={() => setShow(false)} show={show} username={displayName} url={userImage} />
             </Box>
         </Box>
     )

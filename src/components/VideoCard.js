@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import EditVideoModal from './EditVideoModal';
 import Dummy from '../imgs/1111.jpg';
 
-function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
+function VideoCard({ videoTitle, videoDate, id }) {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
@@ -16,17 +16,11 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             if (authUser) {
                 //user has logged in
                 setUser(authUser);
-                auth.onAuthStateChanged((currentUser) => {
-                    if (currentUser) {
-                        setDisplayName(currentUser.displayName);
-                        console.log(displayName);
-                    } else {
-                        setDisplayName('');
-                    }
-                })
+                setDisplayName(authUser.displayName);
             } else {
                 //user is logged out
                 setUser(null);
+                setDisplayName('');
             }
         })
 
@@ -34,7 +28,7 @@ function VideoCard({ videoTitle, videoDate, id, videoUrl }) {
             // perform clean up actions
             unsubscribe();
         }
-    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [user, displayName]);
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete?')) {

@@ -1,0 +1,87 @@
+.mobileProfile__container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: absolute;
+    right: 0;
+    background-image: linear-gradient(#D4AF37, yellow);
+    height: 100vh;
+    width: 100%;
+}
+
+.mobileProfile__X {
+    color: white !important;
+    position: absolute !important;
+    padding-top: 10px;
+}
+
+.mobileProfile__Avatar {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.mobileProfile__Settings {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.mobileProfileSettingsText {
+    color: white;
+}
+
+hr {
+    margin-top: 10px;
+    width: 95%;
+    color: white;
+    border: solid 1px white;
+}
+
+.MobileAvatar__Profile {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 3px white;
+    height: 75px !important;
+    width: 75px !important;
+}
+
+.adminFunctions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Logout {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.LogoutButton {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color:red;
+}
+
+.adminFncUploadVerse {
+    margin-top: 20px;
+    color:white;
+}
+
+.adminFncUploadVideos {
+    margin-top: 20px;
+    color:white;
+}

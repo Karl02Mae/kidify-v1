@@ -1,0 +1,31 @@
+.mobileVideoCard {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 50px;
+}
+
+.mobileVideoCard__thumbnail {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 93vw;
+    height: fit-content;
+}
+
+.mobileVideo__info {
+    display: flex;
+}
+
+.mobileVideo__text {
+    padding-left: 15px;
+}
+
+.mobileVideo__text > h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mobileVideo__text > p {
+    font-size: 11px;
+    color: gray;
+}

@@ -19,6 +19,25 @@
     text-align: center;
     width: 100px;
 }
+
+.footerHomeTextIcon {
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    display: flex;
+}
+
+.footerVideosTextIcon {
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    display: flex;
+}
+
 .footer__Videos {
     display: flex;
     flex-direction: column;

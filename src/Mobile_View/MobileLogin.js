@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {
     Box,
     Typography,
@@ -106,60 +106,62 @@ function MobileLogin() {
     }
 
     return (
-        <Box sx={style.root}>
-            <Helmet>
-                <title>Kidify - Log In </title>
-                <meta
-                    name="description"
-                    content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:description"
-                    content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
-                    data-react-helmet="true"
-                />
-                <meta
-                    name="keywords"
-                    content="Kidify, Church Lessons, Log In, login, church lessons, kidify"
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:title"
-                    content="Kidify - Login"
-                    data-react-helmet="true"
-                />
-            </Helmet>
-            <Box sx={style.Texts}>
-                <img src={logo} alt='Logo' height='200px' />
-                <Typography sx={style.loginText}>Login to Kidify!</Typography>
-            </Box>
-            <Box sx={style.textFieldContainer}>
-                <TextField
-                    id='email'
-                    sx={style.loginEmail}
-                    placeholder='Enter Email'
-                    onChange={(e) => setEmail(e.target.value)} />
+        <HelmetProvider>
+            <Box sx={style.root}>
+                <Helmet>
+                    <title>Kidify - Log In </title>
+                    <meta
+                        name="description"
+                        content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:description"
+                        content="Log in to KIDIFY!. Please Log In to view Kidify Contents!."
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        name="keywords"
+                        content="Kidify, Church Lessons, Log In, login, church lessons, kidify"
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:title"
+                        content="Kidify - Login"
+                        data-react-helmet="true"
+                    />
+                </Helmet>
+                <Box sx={style.Texts}>
+                    <img src={logo} alt='Logo' height='200px' />
+                    <Typography sx={style.loginText}>Login to Kidify!</Typography>
+                </Box>
+                <Box sx={style.textFieldContainer}>
+                    <TextField
+                        id='email'
+                        sx={style.loginEmail}
+                        placeholder='Enter Email'
+                        onChange={(e) => setEmail(e.target.value)} />
 
-                <TextField
-                    id='password'
-                    type='password'
-                    sx={style.loginPassword}
-                    placeholder='Enter Password'
-                    onChange={(e) => setPassword(e.target.value)} />
+                    <TextField
+                        id='password'
+                        type='password'
+                        sx={style.loginPassword}
+                        placeholder='Enter Password'
+                        onChange={(e) => setPassword(e.target.value)} />
 
-                <Button
-                    variant='outlined'
-                    sx={style.LoginButton}
-                    onClick={login}
-                >Login</Button>
+                    <Button
+                        variant='outlined'
+                        sx={style.LoginButton}
+                        onClick={login}
+                    >Login</Button>
+                </Box>
+                <Box sx={style.forgot}>
+                    <Typography sx={style.forgot2}>Forgot Password?</Typography>
+                    <Typography sx={style.forgot2}>|</Typography>
+                    <Link to='/register'><Typography sx={style.forgot2}>Don't have an account yet? Register now!</Typography></Link>
+                </Box>
             </Box>
-            <Box sx={style.forgot}>
-                <Typography sx={style.forgot2}>Forgot Password?</Typography>
-                <Typography sx={style.forgot2}>|</Typography>
-                <Link to='/register'><Typography sx={style.forgot2}>Don't have an account yet? Register now!</Typography></Link>
-            </Box>
-        </Box>
+        </HelmetProvider>
     )
 }
 

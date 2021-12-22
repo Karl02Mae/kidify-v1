@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db, auth } from '../firebase';
 import firebase from 'firebase/compat';
-import './Comments.css';
+import './MobileComments.css';
 
-function Comments() {
+function MobileComments() {
     const { id } = useParams();
     const [user, setUser] = useState('');
     const [comments, setComments] = useState([]);
@@ -48,9 +48,7 @@ function Comments() {
         };
     }, [id]);
 
-    const postComment = (event) => {
-        //event.preventDefault();
-
+    const postComment = () => {
         db.collection("videos").doc(id).collection("comments").add({
             text: comment,
             username: user.displayName,
@@ -62,16 +60,16 @@ function Comments() {
     return (
         <div>
             {user && (
-                <form className="post__commentBox">
+                <form className="mobilePost__commentBox">
                     <input
-                        className="post__input"
+                        className="mobilePost__input"
                         type="text"
                         placeholder="Add a comment..."
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
                     <button
-                        className="post__button"
+                        className="mobilePost__button"
                         disabled={!comment}
                         type="submit"
                         onClick={postComment}
@@ -81,17 +79,16 @@ function Comments() {
                 </form>
             )}
 
-            <div className="post__comments">
+            <div className="mobilePost__comments">
                 {comments.map(({ id, data }) => (
                     <p key={id}>
                         <strong>{data.username}</strong> {data.text}
                     </p>
                 ))}
             </div>
-
-
+            
         </div>
     )
 }
 
-export default Comments
+export default MobileComments

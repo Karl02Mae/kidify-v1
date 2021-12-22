@@ -1,0 +1,14 @@
+.mobilePost__comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobilePost__comments>p {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.mobilePost__commentBox {
+    padding: 10px;
+}
