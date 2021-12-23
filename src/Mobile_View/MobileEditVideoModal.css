@@ -1,0 +1,57 @@
+.MobileVideoRoot {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-image: linear-gradient(#D4AF37, yellow);
+    height: 100vh;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.MobileVideoTextBoxes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.MobileVideoTextBoxes > h1 {
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.MobileVideoTextBoxes > input {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.MobileVideoTextBoxes > textarea {
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.MobileVideoButtons {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.MobileVideoButtons > button {
+    border-radius: 15px;
+    border: 1px solid black;
+}

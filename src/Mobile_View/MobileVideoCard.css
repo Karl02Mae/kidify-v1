@@ -29,3 +29,8 @@
     font-size: 11px;
     color: gray;
 }
+
+.Admin__Buttons > button {
+    border-radius: 15px;
+    border: solid 1px black;
+}

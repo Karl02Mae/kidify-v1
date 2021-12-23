@@ -15,17 +15,11 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
             if (authUser) {
                 //user has logged in
                 setAdmin(authUser);
-                auth.onAuthStateChanged((currentUser) => {
-                    if (currentUser) {
-                        setDisplayName(currentUser.displayName);
-                        console.log(displayName);
-                    } else {
-                        setDisplayName('');
-                    }
-                })
+                setDisplayName(authUser.displayName);
             } else {
                 //user is logged out
                 setAdmin(null);
+                setDisplayName('');
             }
         })
 
@@ -33,7 +27,7 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
             // perform clean up actions
             unsubscribe();
         }
-    }, [admin]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [admin, displayName]);
 
 
     const handleDelete = () => {

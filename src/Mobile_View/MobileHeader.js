@@ -76,6 +76,7 @@ function MobileHeader() {
     const handleClick = () => {
         if (show === false) {
             setShow(true);
+            console.log(user);
         }
     }
 

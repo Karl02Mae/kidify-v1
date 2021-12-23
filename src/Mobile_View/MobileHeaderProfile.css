@@ -12,7 +12,7 @@
 .mobileProfile__X {
     color: white !important;
     position: absolute !important;
-    padding-top: 10px;
+    padding-top: 10px !important;
 }
 
 .mobileProfile__Avatar {

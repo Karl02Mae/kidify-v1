@@ -41,3 +41,8 @@
     font-weight: bold;
     white-space: pre-line;
 }
+
+.MobileAdmin__Buttons > button {
+    border-radius: 15px;
+    border: 1px solid black;
+}

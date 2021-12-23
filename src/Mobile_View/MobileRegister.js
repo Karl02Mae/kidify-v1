@@ -94,6 +94,7 @@ function MobileRegister() {
 
             }).catch((error) => alert(error.message));
         history.push("/");
+        window.location.reload();
     }
 
     return (
@@ -139,6 +140,7 @@ function MobileRegister() {
                 />
                 <TextField
                     sx={style.Password}
+                    type='password'
                     placeholder='Enter your Password'
                     onChange={(e) => setPassword(e.target.value)}
                 />

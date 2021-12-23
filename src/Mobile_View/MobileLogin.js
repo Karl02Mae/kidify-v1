@@ -86,6 +86,11 @@ function MobileLogin() {
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+    const forgotPass = () => {
+        auth.sendPasswordResetEmail(email);
+        alert('Reset Email sent!')
+    }
+
     const login = (event) => {
         event.preventDefault();
 
@@ -156,7 +161,7 @@ function MobileLogin() {
                     >Login</Button>
                 </Box>
                 <Box sx={style.forgot}>
-                    <Typography sx={style.forgot2}>Forgot Password?</Typography>
+                    <Typography sx={style.forgot2} onClick={forgotPass}>Forgot Password?</Typography>
                     <Typography sx={style.forgot2}>|</Typography>
                     <Link to='/register'><Typography sx={style.forgot2}>Don't have an account yet? Register now!</Typography></Link>
                 </Box>

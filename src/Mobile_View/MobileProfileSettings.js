@@ -8,6 +8,7 @@ function MobileProfileSettings() {
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [newUserN, setNewUserN] = useState('');
+    const [newPass, setNewPass] = useState('');
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
     const history = useHistory();
@@ -81,8 +82,10 @@ function MobileProfileSettings() {
                                         displayName: newUserN,
                                         photoURL: url,
                                     });
+                                    
+                                    currentUser.updatePassword(newPass);
 
-                                    alert('Update Success!');
+                                    alert('Update Success!\nYou will now be logged out.');
                                     setNewUserN('');
                                     history.push('/');
                                     window.location.reload();
@@ -104,6 +107,8 @@ function MobileProfileSettings() {
                 <input className='mobileUpload__Image' type='file' accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
                 <h3 className='labels'>Update Username</h3>
                 <input className='mobileUpdate__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
+                <h3 className='labels'>Update Password</h3>
+                <input className='mobileUpdate__Password' type='password' placeholder='Password' onChange={event => setNewPass(event.target.value)} value={newPass} />
                 <br />
                 <div className='buttons'>
                     <h3 className='UpdateButton' onClick={handleUpload}>Update Profile</h3>
