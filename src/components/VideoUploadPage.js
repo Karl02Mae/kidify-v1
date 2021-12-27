@@ -7,7 +7,7 @@ function VideoUploadPage() {
 
     return (
         <HelmetProvider>
-            <div className="root">
+            <div className="root3">
                 <Helmet>
                     <title>Kidify - Upload Videos </title>
                     <meta

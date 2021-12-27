@@ -69,6 +69,10 @@ function MobileHeaderProfile(props) {
                             handleClick();
                         }}>Profile Settings
                     </h4>
+                    <h4 className='mobileProfile__SettingsAbout'
+                        onClick={() => { history.push('/aboutus'); props.onClose(); }}>
+                        About Us
+                    </h4>
                 </div>
                 {displayName === 'KidifyAdmin2021' ? (
                     <div className='adminFunctions'>

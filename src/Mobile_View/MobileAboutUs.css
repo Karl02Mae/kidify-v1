@@ -1,0 +1,88 @@
+.AboutUsRoot {
+    display: flex;
+    flex-direction: column;
+}
+
+.ChurchDetails {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.AU__ChurchName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.AboutUsText {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.AU__ChurchLoc {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.AboutUsText2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: grey;
+    padding: 10px;
+}
+
+.AU__ChurchEmail {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.AU__Desc {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.DevDetails {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+.Kidify__Developers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.LogoLogo {
+    height: auto;
+    width: 100%;
+}
+
+.DevelopersLabel {
+    color: white;
+}
+
+.DEVS {
+    display: flex;
+    flex-direction: column;
+}
+
+.NAMES {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+}

@@ -9,6 +9,7 @@ function MobileProfileSettings() {
     const [displayName, setDisplayName] = useState('');
     const [newUserN, setNewUserN] = useState('');
     const [newPass, setNewPass] = useState('');
+    const [conPass, setConPass] = useState('');
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
     const history = useHistory();
@@ -57,6 +58,8 @@ function MobileProfileSettings() {
 
                 if (newUserN === '') {
                     alert('No Username Entered!');
+                } else if (newPass !== conPass) {
+                    alert('Password not matched!')
                 } else {
 
                     uploadTask.on(
@@ -82,7 +85,7 @@ function MobileProfileSettings() {
                                         displayName: newUserN,
                                         photoURL: url,
                                     });
-                                    
+
                                     currentUser.updatePassword(newPass);
 
                                     alert('Update Success!\nYou will now be logged out.');
@@ -109,6 +112,8 @@ function MobileProfileSettings() {
                 <input className='mobileUpdate__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
                 <h3 className='labels'>Update Password</h3>
                 <input className='mobileUpdate__Password' type='password' placeholder='Password' onChange={event => setNewPass(event.target.value)} value={newPass} />
+                <h3 className='labels'>Confirm Password</h3>
+                <input className='mobileUpdate__conPass' type='password' placeholder='Confirm Password' onChange={event => setConPass(event.target.value)} value={conPass} />
                 <br />
                 <div className='buttons'>
                     <h3 className='UpdateButton' onClick={handleUpload}>Update Profile</h3>

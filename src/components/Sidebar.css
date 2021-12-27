@@ -12,3 +12,71 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.Church {
+    display: flex;
+    flex-direction: column;
+}
+
+.Church__Logo {
+    margin-left: 5px;
+}
+
+.Church__Name__Cont {
+    display: flex;
+    align-items: center;
+}
+
+.Church__Name {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.Church__Location__Cont {
+    display: flex;
+    align-items: center;
+}
+
+.Church__Location__Logo {
+    margin-left: 5px;
+}
+
+.Church__Location {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.Church__Email__Cont {
+    display: flex;
+    align-items: center;
+}
+
+.Church__Email__Logo {
+    margin-left: 5px;
+}
+
+.Church__Email {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.Church__Description__Cont {
+    display: flex;
+}
+
+.Church__Description__Logo {
+    margin-left: 5px;
+}
+
+.Church__Description {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    padding: 5px;
+}

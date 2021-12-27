@@ -11,7 +11,8 @@ function VideoUpload() {
     const [videoProgress, setVideoProgress] = useState(0);
     const [videoTitle, setVideoTitle] = useState("");
     const [videoCaption, setVideoCaption] = useState("");
-    const [videoDate, setVideoDate] = useState('');
+    const current = new Date();
+    const videoDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
     const history = useHistory("");
 
@@ -74,7 +75,6 @@ function VideoUpload() {
 
                                 setVideoCaption("");
                                 setVideoTitle("");
-                                setVideoDate('');
                                 setVideoProgress(0);
                                 history.push('/videos');
                             }).catch((error) => {
@@ -93,7 +93,6 @@ function VideoUpload() {
             <input className="videoUpload__video" type="file" accept="video/mp4" onChange={videoHandleChange} />
             <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
             <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
-            <input className="videoUpload__date" type="date" onChange={event => setVideoDate(event.target.value)} value={videoDate} />
             <Button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video
             </Button>

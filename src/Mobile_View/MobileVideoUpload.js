@@ -12,7 +12,8 @@ function MobileVideoUpload() {
     const [videoProgress, setVideoProgress] = useState(0);
     const [videoTitle, setVideoTitle] = useState("");
     const [videoCaption, setVideoCaption] = useState("");
-    const [videoDate, setVideoDate] = useState('');
+    const current = new Date();
+    const videoDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     const history = useHistory("");
 
     const videoHandleChange = (e) => {
@@ -74,7 +75,6 @@ function MobileVideoUpload() {
 
                                 setVideoCaption("");
                                 setVideoTitle("");
-                                setVideoDate('');
                                 setVideoProgress(0);
                                 history.push('/videos');
                             }).catch((error) => {
@@ -121,7 +121,6 @@ function MobileVideoUpload() {
                     </div>
                     <input className="mobileVideoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
                     <textarea className="mobileVideoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
-                    <input className="mobileVideoUpload__date" type="date" onChange={event => setVideoDate(event.target.value)} value={videoDate} />
                     <h3 className="mobileButton__videoUpload" onClick={handleUpload} >
                         Upload Video
                     </h3>

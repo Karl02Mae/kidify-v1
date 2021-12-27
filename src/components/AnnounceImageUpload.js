@@ -10,7 +10,8 @@ function AnnounceImageUpload({ username }) {
     const [progress, setProgress] = useState(0);
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
-    const [date, setDate] = useState('');
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
     const history = useHistory();
 
@@ -61,12 +62,12 @@ function AnnounceImageUpload({ username }) {
                                     username: username
                                 });
 
+                                console.log(date);
                                 alert('Upload Success!');
                                 setProgress(0);
                                 setCaption("");
                                 setTitle("");
                                 setImage(null);
-                                setDate('');
                                 history.push('/')
                             }).catch((error) => {
                                 console.log(error);
@@ -84,7 +85,6 @@ function AnnounceImageUpload({ username }) {
             <input className="imageupload__button" type="file" accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
             <input className="imageupload__title" type="text" placeholder="Enter Announcement Title" onChange={event => setTitle(event.target.value)} value={title} required />
             <textarea className="imageupload__text" type="text" placeholder="Enter a message..." onChange={event => setCaption(event.target.value)} value={caption} required />
-            <input className="imageupload__date" type="date" onChange={event => setDate(event.target.value)} value={date} />
             <Button className="button__upload" onClick={handleUpload}>
                 Upload
             </Button>

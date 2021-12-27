@@ -8,6 +8,8 @@ function UserProfile() {
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [newUserN, setNewUserN] = useState('');
+    const [newPass, setNewPass] = useState('');
+    const [conPass, setConPass] = useState('');
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
 
@@ -49,6 +51,8 @@ function UserProfile() {
 
                 if (newUserN === '') {
                     alert('No Username Entered!');
+                } else if (newPass !== conPass) {
+                    alert('Password not matched!');
                 } else {
 
                     uploadTask.on(
@@ -75,8 +79,12 @@ function UserProfile() {
                                         photoURL: url,
                                     });
 
+                                    currentUser.updatePassword(newPass);
+
                                     alert('Update Success!');
                                     setNewUserN('');
+                                    setNewPass('');
+                                    setConPass('');
                                     window.location.reload();
                                 }).catch((error) => {
                                     console.log(error);
@@ -96,6 +104,10 @@ function UserProfile() {
                 <progress className="update__Progress" value={progress} max="100" />
                 <h2>Update Username</h2>
                 <input className='update__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
+                <h2>Update Password</h2>
+                <input type='password' className='update__Password' placeholder='Password' onChange={event => setNewPass(event.target.value)} value={newPass} />
+                <h2>Confirm New Password</h2>
+                <input className='update__confirmPass' type='password' placeholder='Confirm Password' onChange={event => setConPass(event.target.value)} value={conPass} />
                 <br />
                 <Button className='Button' onClick={handleUpload}>Update Profile</Button>
             </div>

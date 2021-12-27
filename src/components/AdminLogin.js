@@ -49,6 +49,17 @@ function AdminLogin() {
         })
     }
 
+    const forgotPass = () => {
+        if (email === '') {
+            const promptEmail = window.prompt('Enter your email');
+            auth.sendPasswordResetEmail(promptEmail);
+            alert('Reset Email Sent!')
+        } else {
+            auth.sendPasswordResetEmail(email);
+            alert('Reset Email sent!');
+        }
+    }
+
 
     return (
         <div className="login">
@@ -91,7 +102,7 @@ function AdminLogin() {
                     </center>
                     <center>
                         <div className="sideInfo">
-                            <h5>Forgot Password ?</h5>
+                            <h5 onClick={forgotPass}>Forgot Password ?</h5>
                             <h5>|</h5>
                             <Link to='/register'><h5>Don't have an account yet? Register now!</h5></Link>
                         </div>

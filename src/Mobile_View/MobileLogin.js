@@ -87,8 +87,14 @@ function MobileLogin() {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const forgotPass = () => {
-        auth.sendPasswordResetEmail(email);
-        alert('Reset Email sent!')
+        if (email === '') {
+            const promptEmail = window.prompt('Enter your email');
+            auth.sendPasswordResetEmail(promptEmail);
+            alert('Reset Email Sent!')
+        } else {
+            auth.sendPasswordResetEmail(email);
+            alert('Reset Email sent!');
+        }
     }
 
     const login = (event) => {

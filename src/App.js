@@ -28,6 +28,7 @@ import MobileProfileSettings from './Mobile_View/MobileProfileSettings';
 import MobileVerseUpload from './Mobile_View/MobileVerseUpload';
 import MobileVideoUpload from './Mobile_View/MobileVideoUpload';
 import MobileVideoPlayer from './Mobile_View/MobileVideoPlayer';
+import MobileAboutUs from './Mobile_View/MobileAboutUs';
 
 function App() {
 
@@ -67,6 +68,12 @@ function App() {
 
             <Route path='/play/:id'>
               <MobileVideoPlayer />
+            </Route>
+
+            <Route path='/aboutus'>
+              <MobileHeader />
+              <MobileAboutUs />
+              <MobileFooter />
             </Route>
 
             <Route path='/' exact>
