@@ -73,6 +73,10 @@ function MobileHeaderProfile(props) {
                         onClick={() => { history.push('/aboutus'); props.onClose(); }}>
                         About Us
                     </h4>
+                    <h4 className='mobileProfile__SettingsActivities'
+                        onClick={() => { history.push('/activities'); props.onClose(); }}>
+                        Activities
+                    </h4>
                 </div>
                 {displayName === 'KidifyAdmin2021' ? (
                     <div className='adminFunctions'>
@@ -82,6 +86,10 @@ function MobileHeaderProfile(props) {
                         <h4 className='adminFncUploadVideos'
                             onClick={() => history.push('/uploadvideos')}>
                             Upload Videos
+                        </h4>
+                        <h4 className='adminFncChildJournals'
+                            onClick={() => history.push('/journalDisplay')}>
+                            Children's Journals
                         </h4>
                     </div>
                 ) : (

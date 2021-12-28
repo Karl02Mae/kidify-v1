@@ -35,6 +35,9 @@ import MobileVerseUpload from './Mobile_View/MobileVerseUpload';
 import MobileVideoUpload from './Mobile_View/MobileVideoUpload';
 import MobileVideoPlayer from './Mobile_View/MobileVideoPlayer';
 import MobileAboutUs from './Mobile_View/MobileAboutUs';
+import MobileActivities from './Mobile_View/MobileActivities';
+import MobileJournal from './Mobile_View/MobileJournal';
+import MobileAdminJournal from './Mobile_View/MobileAdminJournal';
 
 
 function App() {
@@ -57,6 +60,18 @@ function App() {
 
             <Route path='/profile'>
               <MobileProfileSettings />
+            </Route>
+
+            <Route path='/activities'>
+              <MobileActivities />
+            </Route>
+
+            <Route path='/journal'>
+              <MobileJournal />
+            </Route>
+
+            <Route path='/journalDisplay'>
+              <MobileAdminJournal />
             </Route>
 
             <Route path='/uploadverse'>

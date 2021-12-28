@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.MobileActivitiesRoot {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(#D4AF37, yellow);
+    align-items: center;
+}
+
+
+.MobileActIcon {
+    color: white;
+    padding: 5px;
+}
+
+.MobileActivitiesTITLE {
+    text-decoration: none;
+    padding: 5px;
+    color: white;
+}

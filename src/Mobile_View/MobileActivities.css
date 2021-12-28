@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.MobileActivitesContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+.MobileActivitiesTitle {
+    padding: 10px;
+    text-align: center;
+}
+
+.BackArrowMobile {
+    color: black;
+    padding: 10px;
+    margin-left: 10px;
+}
