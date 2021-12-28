@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfileModal.css';
 import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
@@ -8,6 +8,27 @@ import { auth } from '../firebase';
 function ProfileModal(props) {
 
     const history = useHistory();
+    const [user, setUser] = useState(null);
+    const [displayName, setDisplayName] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                //user has logged in
+                setUser(authUser);
+                setDisplayName(authUser.displayName);
+            } else {
+                //user is logged out
+                setUser(null);
+                setDisplayName('');
+            }
+        })
+
+        return () => {
+            // perform clean up actions
+            unsubscribe();
+        }
+    }, [user, displayName, history]);
 
     const handleClick = () => {
         if (window.confirm('Are you sure you want to edit your profile?\nYou must fill all details again to update') === true) {
@@ -37,6 +58,14 @@ function ProfileModal(props) {
                 <div className='profile__settings'>
                     <h3 onClick={() => { props.onClose(); handleClick(); }}>Profile Settings</h3>
                 </div>
+
+                {displayName === 'KidifyAdmin2021' ? (
+                    <div className='adminJournal'>
+                        <h3 onClick={() => { history.push('journalDisplay'); props.onClose(); }}>Children's Journals</h3>
+                    </div>
+                ) : (<div></div>)
+                }
+
                 <div className='profile__logout'>
                     <Button onClick={() => {
                         if (window.confirm('Log out?') === true) {
@@ -50,7 +79,7 @@ function ProfileModal(props) {
                         Logout
                     </Button>
                 </div>
-            </div>
+            </div >
         )
     }
 }

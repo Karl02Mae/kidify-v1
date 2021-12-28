@@ -16,8 +16,8 @@ function Sidebar() {
         <div className="sidebar">
 
             <Link to='/'> <SidebarRow Icon={HomeIcon} title="Home" /> </Link>
-            <Link to='/videos'> <SidebarRow selected Icon={VideoIcon} title="Videos" /> </Link>
-            <Link to='/activities'><SidebarRow Icon={NoteAddIcon} title='Activities' /> </Link>
+            <Link to='/videos'> <SidebarRow Icon={VideoIcon} title="Videos" /> </Link>
+            <Link to='/activities'><SidebarRow selected Icon={NoteAddIcon} title='Activities' /> </Link>
             <Link to='/about'><SidebarRow Icon={InfoIcon} title='About Us' /></Link>
             <hr />
         </div>

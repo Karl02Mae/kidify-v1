@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Sidebar2 from './components/Sidebar2';
+import Sidebar3 from './components/Sidebar3';
+import Sidebar4 from './components/Sidebar4';
 import Videos from './components/Videos';
 import SearchPage from './components/SearchPage';
 import HomePage from './components/HomePage';
@@ -16,6 +18,10 @@ import UploadAnnounce from './components/UploadAnnounce';
 import VideoUploadPage from './components/VideoUploadPage';
 import VideoPlayer from './components/VideoPlayer';
 import UserProfile from './components/UserProfile';
+import AboutUs from './components/AboutUs';
+import Activities from './components/Activities';
+import Journal from './components/Journal';
+import AdminJournal from './components/AdminJournal';
 
 //Components for Mobile View
 import MobileLogin from './Mobile_View/MobileLogin';
@@ -29,6 +35,7 @@ import MobileVerseUpload from './Mobile_View/MobileVerseUpload';
 import MobileVideoUpload from './Mobile_View/MobileVideoUpload';
 import MobileVideoPlayer from './Mobile_View/MobileVideoPlayer';
 import MobileAboutUs from './Mobile_View/MobileAboutUs';
+
 
 function App() {
 
@@ -135,6 +142,34 @@ function App() {
               <div className="app__page">
                 <Sidebar2 />
                 <Videos />
+              </div>
+            </Route>
+
+            <Route path='/activities'>
+              <div className='app__page'>
+                <Sidebar3 />
+                <Activities />
+              </div>
+            </Route>
+
+            <Route path='/journal'>
+              <div className='app__page'>
+                <Sidebar3 />
+                <Journal />
+              </div>
+            </Route>
+
+            <Route path='/journalDisplay'>
+              <div className='app__page'>
+                <Sidebar />
+                <AdminJournal />
+              </div>
+            </Route>
+
+            <Route path='/about'>
+              <div className='app__page'>
+                <Sidebar4 />
+                <AboutUs />
               </div>
             </Route>
 

@@ -61,3 +61,19 @@
     background-color: red;
     transition: 0.5s;
 }
+
+.profile__settings > h3 {
+    text-decoration: none;
+}
+
+.adminJournal > h3 {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.adminJournal > h3:hover {
+    color: black;
+    transition: 0.5s;
+    cursor: pointer;
+}

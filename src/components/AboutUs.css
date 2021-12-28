@@ -1,17 +1,9 @@
-.sidebar {
+.AboutContainer {
     display: flex;
+    flex: 0.8;
     flex-direction: column;
-    flex: 0.2;
-    background-color: #ffffff;
-    
-}
-
-.sidebar > hr {
-    height: 1px;
-    border: 0;
-    background-color: lightgray;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 100vh;
 }
 
 .Church {
@@ -26,6 +18,7 @@
 .Church__Name__Cont {
     display: flex;
     align-items: center;
+    margin: 10px;
 }
 
 .Church__Name {
@@ -38,6 +31,9 @@
 .Church__Location__Cont {
     display: flex;
     align-items: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .Church__Location__Logo {
@@ -54,6 +50,9 @@
 .Church__Email__Cont {
     display: flex;
     align-items: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .Church__Email__Logo {
@@ -69,6 +68,9 @@
 
 .Church__Description__Cont {
     display: flex;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .Church__Description__Logo {
@@ -80,4 +82,37 @@
     color: grey;
     font-size: 14px;
     padding: 5px;
+}
+
+.DevContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.devText {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.devName {
+    text-decoration: none;
+    color: grey;
+}
+
+.devAvatar {
+    margin: 5px;
+    border: 1.5px solid black;
+}
+
+.avaCont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.AboutTitle {
+    padding: 20px;
+    padding-left: 30px;
 }

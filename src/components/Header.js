@@ -40,17 +40,12 @@ function Header() {
                 //user has logged in
                 setUser(authUser);
                 setUserImage(authUser.photoURL);
-                auth.onAuthStateChanged((currentUser) => {
-                    if (currentUser) {
-                        setDisplayName(currentUser.displayName);
-                        console.log(displayName);
-                    } else {
-                        setDisplayName('');
-                    }
-                })
+                setDisplayName(authUser.displayName);
             } else {
                 //user is logged out
                 setUser(null);
+                setUserImage(null);
+                setDisplayName('');
                 history.push('/login');
             }
         })
@@ -59,7 +54,7 @@ function Header() {
             // perform clean up actions
             unsubscribe();
         }
-    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [user, userImage, displayName, history]);
 
     const [inputSearch, setInputSearch] = useState('');
     if (window.location.pathname === '/login' || window.location.pathname === '/registerKidifyAdmin') {

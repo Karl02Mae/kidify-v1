@@ -1,0 +1,76 @@
+.JournalCont {
+    display: flex;
+    flex: 0.8;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.Journal {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 20px;
+    background-image: linear-gradient(#D4AF37,yellow);
+    border: 2px solid black;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.JournalTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.JournalVideoTitle {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.videoTitleInput {
+    height: 30px;
+    width: 500px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.JournalContent {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.videoContentInput {
+    width: 500px;
+    height: 300px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.JournalSubmit {
+    height: 40px;
+    width: 500px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.JournalSubmit:hover {
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
