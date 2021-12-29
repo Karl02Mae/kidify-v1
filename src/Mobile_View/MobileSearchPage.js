@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './SearchPage.css';
+import './MobileSearchPage.css';
 import { db } from '../firebase';
-import VideoRow from './VideoRow';
+import MobileVideoRow from './MobileVideoRow';
 import DummyThumbnail from '../imgs/1111.jpg';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
-function SearchPage() {
+function MobileSearchPage() {
 
     const { searchTerm } = useParams();
     const [vids, setVids] = useState([]);
-
 
     useEffect(() => {
         db.collection('videos').orderBy('videoDate', 'desc').onSnapshot(snapshot => {
@@ -23,7 +22,7 @@ function SearchPage() {
 
     return (
         <HelmetProvider>
-            <div className="searchPage">
+            <div className="SearchPageContainer">
                 <Helmet>
                     <title>Kidify - Search </title>
                     <meta
@@ -49,7 +48,7 @@ function SearchPage() {
                 </Helmet>
                 {vids.map(({ id, data }) => {
                     if (data.searchKey === searchTerm) {
-                        return <VideoRow
+                        return <MobileVideoRow
                             key={id}
                             id={id}
                             date={data.videoDate}
@@ -70,4 +69,4 @@ function SearchPage() {
     )
 }
 
-export default SearchPage
+export default MobileSearchPage

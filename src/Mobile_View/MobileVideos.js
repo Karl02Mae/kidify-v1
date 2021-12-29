@@ -51,6 +51,7 @@ function MobileVideos() {
                             <MobileVideoCard
                                 key={id}
                                 id={id}
+                                searchKey={data.searchKey}
                                 videoTitle={data.videoTitle}
                                 videoDate={data.videoDate}
                                 videoCaption={data.videoCaption}

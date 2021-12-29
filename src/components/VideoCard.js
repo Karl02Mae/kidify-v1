@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import EditVideoModal from './EditVideoModal';
 import Dummy from '../imgs/1111.jpg';
 
-function VideoCard({ videoTitle, videoDate, id }) {
+function VideoCard({ videoTitle, videoDate, id, searchKey }) {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
@@ -73,6 +73,9 @@ function VideoCard({ videoTitle, videoDate, id }) {
                     </Link>
                     <p>
                         {videoDate}
+                    </p>
+                    <p>
+                        <span>Search Key: </span>{searchKey}
                     </p>
                 </div>
             </div>

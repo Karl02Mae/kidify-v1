@@ -22,6 +22,7 @@ function Header() {
     const [displayName, setDisplayName] = useState('');
     const [userImage, setUserImage] = useState('');
     const [show, setShow] = useState(false);
+    const [inputSearch, setInputSearch] = useState('');
 
     const history = useHistory();
 
@@ -56,7 +57,6 @@ function Header() {
         }
     }, [user, userImage, displayName, history]);
 
-    const [inputSearch, setInputSearch] = useState('');
     if (window.location.pathname === '/login' || window.location.pathname === '/registerKidifyAdmin') {
         return null;
     }
@@ -85,7 +85,7 @@ function Header() {
                         type="text"
                     />
                     <Link to={`/search/${inputSearch}`}>
-                        <SearchIcon className="header__inputButton" />
+                        <SearchIcon onClick={() => setInputSearch('')} className="header__inputButton" />
                     </Link>
                 </div>
 

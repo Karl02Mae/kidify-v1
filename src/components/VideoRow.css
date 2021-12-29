@@ -5,7 +5,7 @@
 
 }
 
-.videoRow > img {
+.videoRow__thumbnail {
     object-fit: contain;
     width: 246px;
     height: 138px;
@@ -13,6 +13,11 @@
 
 .videoRow__text {
     margin-left: 14px;
+}
+
+.videoRow__title {
+    text-decoration: none;
+    color: black;
 }
 
 .videoRow__description {
@@ -24,14 +29,4 @@
 .videoRow__headline {
     font-size: 12px;
     color: #606060;
-}
-
-.videoRow__views {
-    padding: 2px;
-    background-color: lightgray;
-}
-
-.videoRow__viewsNo {
-    font-weight: bolder;
-    color: rgb(84, 157, 211);
 }

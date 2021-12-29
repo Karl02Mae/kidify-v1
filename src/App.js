@@ -38,6 +38,7 @@ import MobileAboutUs from './Mobile_View/MobileAboutUs';
 import MobileActivities from './Mobile_View/MobileActivities';
 import MobileJournal from './Mobile_View/MobileJournal';
 import MobileAdminJournal from './Mobile_View/MobileAdminJournal';
+import MobileSearchPage from './Mobile_View/MobileSearchPage';
 
 
 function App() {
@@ -85,6 +86,12 @@ function App() {
             <Route path='/videos'>
               <MobileHeader />
               <MobileVideos />
+              <MobileFooter />
+            </Route>
+
+            <Route path='/search/:searchTerm'>
+              <MobileHeader />
+              <MobileSearchPage />
               <MobileFooter />
             </Route>
 

@@ -5,7 +5,7 @@ import Dummy from '../imgs/1111.jpg';
 import MobileEditVideoModal from './MobileEditVideoModal';
 import './MobileVideoCard.css';
 
-function MobileVideoCard({ videoTitle, videoDate, id }) {
+function MobileVideoCard({ videoTitle, videoDate, id, searchKey }) {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
@@ -73,6 +73,9 @@ function MobileVideoCard({ videoTitle, videoDate, id }) {
                     </Link>
                     <p>
                         {videoDate}
+                    </p>
+                    <p>
+                        <span>Search Key: </span>{searchKey}
                     </p>
                 </div>
             </div>

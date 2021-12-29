@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MobileHeader.css';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import {
     Box,
@@ -72,6 +72,7 @@ function MobileHeader() {
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [userImage, setUserImage] = useState('');
+    const [inputSearch, setInputSearch] = useState('');
 
     const handleClick = () => {
         if (show === false) {
@@ -116,8 +117,12 @@ function MobileHeader() {
                         <Box sx={style.search} >
                             <input className='searchBox' type='text'
                                 placeholder='Search'
+                                onChange={e => setInputSearch(e.target.value)}
+                                value={inputSearch}
                             />
-                            <SearchIcon />
+                            <Link to={`/search/${inputSearch}`}>
+                                <SearchIcon onClick={() => setInputSearch('')} />
+                            </Link>
                         </Box>
                     </Box>
                     <Box sx={style.avatarContainer}>

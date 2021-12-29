@@ -11,6 +11,7 @@ function VideoUpload() {
     const [videoProgress, setVideoProgress] = useState(0);
     const [videoTitle, setVideoTitle] = useState("");
     const [videoCaption, setVideoCaption] = useState("");
+    const [searchKey, setSearchKey] = useState('');
     const current = new Date();
     const videoDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
@@ -65,6 +66,7 @@ function VideoUpload() {
 
 
                                 db.collection("videos").add({
+                                    searchKey: searchKey,
                                     videoCaption: videoCaption,
                                     videoDate: videoDate,
                                     videoTitle: videoTitle,
@@ -72,7 +74,7 @@ function VideoUpload() {
                                 });
 
                                 alert('Upload Success!');
-
+                                setSearchKey('');
                                 setVideoCaption("");
                                 setVideoTitle("");
                                 setVideoProgress(0);
@@ -92,6 +94,7 @@ function VideoUpload() {
             <p className="videoUpload__fileLabel">Upload Video</p>
             <input className="videoUpload__video" type="file" accept="video/mp4" onChange={videoHandleChange} />
             <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
+            <input className='videoUpload__searchKey' type="text" placeholder='Enter Search Key' onChange={event => setSearchKey(event.target.value)} value={searchKey} required />
             <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
             <Button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video
