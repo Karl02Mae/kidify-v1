@@ -12,6 +12,7 @@ function MobileVideoUpload() {
     const [videoProgress, setVideoProgress] = useState(0);
     const [videoTitle, setVideoTitle] = useState("");
     const [videoCaption, setVideoCaption] = useState("");
+    const [searchKey, setSearchKey] = useState('');
     const current = new Date();
     const videoDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     const history = useHistory("");
@@ -30,6 +31,8 @@ function MobileVideoUpload() {
 
             if (videoTitle === '' || videoCaption === '' || videoDate === '') {
                 alert('Please Enter Video Details!');
+            } else if (searchKey.includes(' ')) {
+                alert('Search Key must not include spaces!')
             } else {
 
                 uploadTaskVideo.on(
@@ -65,6 +68,7 @@ function MobileVideoUpload() {
 
 
                                 db.collection("videos").add({
+                                    searchKey: searchKey,
                                     videoCaption: videoCaption,
                                     videoDate: videoDate,
                                     videoTitle: videoTitle,
@@ -72,7 +76,7 @@ function MobileVideoUpload() {
                                 });
 
                                 alert('Upload Success!');
-
+                                setSearchKey('');
                                 setVideoCaption("");
                                 setVideoTitle("");
                                 setVideoProgress(0);
@@ -121,6 +125,7 @@ function MobileVideoUpload() {
                     </div>
                     <input className="mobileVideoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
                     <textarea className="mobileVideoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
+                    <input className='mobileSearchKey' type='text' placeholder='Enter Search Key' onChange={event => setSearchKey(event.target.value)} value={searchKey} required />
                     <h3 className="mobileButton__videoUpload" onClick={handleUpload} >
                         Upload Video
                     </h3>

@@ -31,6 +31,8 @@ function VideoUpload() {
 
             if (videoTitle === '' || videoCaption === '' || videoDate === '') {
                 alert('Please Enter Video Details!');
+            } else if (searchKey.includes(' ')) {
+                alert('Search Key must not have spaces!')
             } else {
 
                 uploadTaskVideo.on(
@@ -94,8 +96,8 @@ function VideoUpload() {
             <p className="videoUpload__fileLabel">Upload Video</p>
             <input className="videoUpload__video" type="file" accept="video/mp4" onChange={videoHandleChange} />
             <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
-            <input className='videoUpload__searchKey' type="text" placeholder='Enter Search Key' onChange={event => setSearchKey(event.target.value)} value={searchKey} required />
             <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
+            <input className='videoUpload__searchKey' type="text" placeholder='Enter Search Key' onChange={event => setSearchKey(event.target.value)} value={searchKey} required />
             <Button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video
             </Button>

@@ -36,6 +36,7 @@
     margin-top: 5px;
     border-radius: 10px;
     font-size: 20px;
+    padding: 5px;
 }
 
 .videoUpload__caption {
@@ -46,6 +47,7 @@
     margin-top: 5px;
     border-radius: 10px;
     font-size: 15px;
+    padding: 5px;
 }
 
 .videoUpload__video {
@@ -70,4 +72,15 @@
     height: 30px;
     width: 90%;
     border-radius: 5px;
+}
+
+.videoUpload__searchKey {
+    height: 30px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
 }

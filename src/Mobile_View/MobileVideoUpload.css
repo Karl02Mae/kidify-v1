@@ -79,3 +79,9 @@
     color: white;
     padding: 10px;
 }
+
+.mobileSearchKey {
+    margin-top: 10px;
+    width: 90%;
+    height: 30px;
+}
