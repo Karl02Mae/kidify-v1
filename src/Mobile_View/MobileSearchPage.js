@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MobileSearchPage.css';
 import { db } from '../firebase';
 import MobileVideoRow from './MobileVideoRow';
-import DummyThumbnail from '../imgs/1111.jpg';
+import DummyThumbnail from '../imgs/thumbnail.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 

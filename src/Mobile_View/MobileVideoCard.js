@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import { Link } from 'react-router-dom';
-import Dummy from '../imgs/1111.jpg';
+import Dummy from '../imgs/thumbnail.png';
 import MobileEditVideoModal from './MobileEditVideoModal';
 import './MobileVideoCard.css';
 

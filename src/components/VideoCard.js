@@ -3,7 +3,7 @@ import './VideoCard.css';
 import { db, auth } from '../firebase';
 import { Link } from 'react-router-dom';
 import EditVideoModal from './EditVideoModal';
-import Dummy from '../imgs/1111.jpg';
+import Dummy from '../imgs/thumbnail.png';
 
 function VideoCard({ videoTitle, videoDate, id, searchKey }) {
 
