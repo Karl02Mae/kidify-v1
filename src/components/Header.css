@@ -40,9 +40,15 @@
 }
 
 .header__inputButton {
+    text-decoration: none !important;
     width: 50px !important;
-    background-color: #fafafa;
-    border-left: 1px solid lightgray;
+    color: black !important;
+    background-color: #fafafa !important;
+    border-left: 1px solid lightgray !important;
+}
+
+.header__inputButton:hover {
+    color: red !important;
 }
 
 .header__icons {

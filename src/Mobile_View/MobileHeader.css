@@ -2,3 +2,8 @@
     width: 80%;
     height: 25px;
 }
+
+.inputSearchIcon {
+    text-decoration: none !important;
+    color: white !important;
+}

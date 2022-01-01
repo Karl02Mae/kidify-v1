@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MobileHeader.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import {
     Box,
@@ -81,6 +81,14 @@ function MobileHeader() {
         }
     }
 
+    const handleSearch = () => {
+        if (inputSearch === "") {
+            alert('Please enter search key!')
+        } else {
+            history.push(`/search/${inputSearch}`);
+        }
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
@@ -115,14 +123,13 @@ function MobileHeader() {
                 <Box sx={style.right}>
                     <Box sx={style.mid}>
                         <Box sx={style.search} >
+
                             <input className='searchBox' type='text'
                                 placeholder='Search'
                                 onChange={e => setInputSearch(e.target.value)}
                                 value={inputSearch}
                             />
-                            <Link to={`/search/${inputSearch}`}>
-                                <SearchIcon onClick={() => setInputSearch('')} />
-                            </Link>
+                            <SearchIcon className='inputSearchIcon' onClick={() => { setInputSearch(''); handleSearch(); }} />
                         </Box>
                     </Box>
                     <Box sx={style.avatarContainer}>

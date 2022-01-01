@@ -35,6 +35,14 @@ function Header() {
         }
     }
 
+    const handleSearch = () => {
+        if (inputSearch === "") {
+            alert('Please enter search key!')
+        } else {
+            history.push(`/search/${inputSearch}`);
+        }
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
@@ -84,9 +92,9 @@ function Header() {
                         placeholder=" Search"
                         type="text"
                     />
-                    <Link to={`/search/${inputSearch}`}>
-                        <SearchIcon onClick={() => setInputSearch('')} className="header__inputButton" />
-                    </Link>
+
+                    <SearchIcon onClick={() => { setInputSearch(''); handleSearch(); }} className="header__inputButton" />
+
                 </div>
 
                 {/* Upload, Alert and Profile */}
