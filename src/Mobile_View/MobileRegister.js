@@ -1,60 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
-import { Helmet } from 'react-helmet';
-import {
-    Box,
-    Typography,
-    Button,
-    TextField,
-} from '@mui/material';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import logo from '../imgs/logo.png';
-
-const style = {
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        flex: 1,
-        height: '100vh',
-        justifyContent: 'center',
-        backgroundImage: `url(${'https://i.ibb.co/88p5zYT/background.jpg'})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
-    },
-    texts: {
-        paddingTop: 7,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-    },
-    text1: {
-        fontWeight: 'bold',
-
-    },
-    text2: {
-        fontSize: '12px',
-        color: 'green',
-    },
-    InputFields: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    userName: {
-        paddingTop: 1,
-    },
-    Email: {
-        paddingTop: 2,
-    },
-    Password: {
-        paddingTop: 2,
-    },
-    button: {
-        paddingTop: 2,
-    }
-}
 
 function MobileRegister() {
     const [username, setUsername] = useState("");
@@ -94,61 +42,61 @@ function MobileRegister() {
 
             }).catch((error) => alert(error.message));
         history.push("/");
-        window.location.reload();
     }
 
     return (
-        <Box sx={style.root}>
-            <Helmet>
-                <title>Kidify - Admin Register </title>
-                <meta
-                    name="description"
-                    content="Register to KIDIFY!. Register to kidify and log in to view contents!."
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:description"
-                    content="Register to KIDIFY!. Register to kidify and log in to view contents!."
-                    data-react-helmet="true"
-                />
-                <meta
-                    name="keywords"
-                    content="Kidify, Church Lessons, Register, register, church lessons, kidify"
-                    data-react-helmet="true"
-                />
-                <meta
-                    property="og:title"
-                    content="Kidify - Register"
-                    data-react-helmet="true"
-                />
-            </Helmet>
-            <Box sx={style.texts}>
-                <img src={logo} alt='Logo' height='200px' />
-                <Typography sx={style.text1}>Register to Kidify!</Typography>
-                <Typography sx={style.text2}>It's Quick and Easy!</Typography>
-            </Box>
-            <Box sx={style.InputFields}>
-                <TextField
-                    sx={style.userName}
-                    placeholder='Enter your Username:'
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <TextField
-                    sx={style.Email}
-                    placeholder='Enter your Email'
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <TextField
-                    sx={style.Password}
-                    type='password'
-                    placeholder='Enter your Password'
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </Box>
-            <Box sx={style.registerButton}>
-                <Button sx={style.button} onClick={register}>Register</Button>
-            </Box>
-        </Box>
+        <HelmetProvider>
+            <div className='register__container'>
+                <Helmet>
+                    <title>Kidify - Admin Register </title>
+                    <meta
+                        name="description"
+                        content="Register to KIDIFY!. Register to kidify and log in to view contents!."
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:description"
+                        content="Register to KIDIFY!. Register to kidify and log in to view contents!."
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        name="keywords"
+                        content="Kidify, Church Lessons, Register, register, church lessons, kidify"
+                        data-react-helmet="true"
+                    />
+                    <meta
+                        property="og:title"
+                        content="Kidify - Register"
+                        data-react-helmet="true"
+                    />
+                </Helmet>
+                <div className='texts'>
+                    <img src={logo} alt='Logo' height='200px' />
+                    < h2 className='RegisterText'>Register to Kidify!</h2>
+                    <h3 className='RegisterText2'>It's Quick and Easy!</h3>
+                </div>
+                <div className='inputFields'>
+                    <input type='text'
+                        className='inputFields__username'
+                        placeholder='Enter your Username:'
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input type='email'
+                        className='inputFields__password'
+                        placeholder='Enter your Email'
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input type='password'
+                        className='inputFields__password'
+                        placeholder='Enter your Password'
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className='register__button'>
+                    <button className='button__register' onClick={register}>Register</button>
+                </div>
+            </div >
+        </HelmetProvider>
     )
 }
 
