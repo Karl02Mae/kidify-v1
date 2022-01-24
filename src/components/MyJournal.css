@@ -1,0 +1,16 @@
+.MyJournalRoot {
+    display: flex;
+    flex: 0.8;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.My__Journals {
+    padding-left: 20px;
+    padding-top: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}

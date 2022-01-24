@@ -1,0 +1,24 @@
+.MobileMyJournalCardCont {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: fit-content;
+    background-image: linear-gradient(#D4AF37,yellow);
+    z-index: 99;
+    padding: 10px;
+    margin: 20px;
+}
+
+.MobileMyUser {
+    display: flex;
+    align-items: center;
+}
+
+.MobileMyJournalUser {
+    padding-left: 10px;
+
+}

@@ -22,6 +22,7 @@ import AboutUs from './components/AboutUs';
 import Activities from './components/Activities';
 import Journal from './components/Journal';
 import AdminJournal from './components/AdminJournal';
+import MyJournal from './components/MyJournal';
 
 //Components for Mobile View
 import MobileLogin from './Mobile_View/MobileLogin';
@@ -39,6 +40,7 @@ import MobileActivities from './Mobile_View/MobileActivities';
 import MobileJournal from './Mobile_View/MobileJournal';
 import MobileAdminJournal from './Mobile_View/MobileAdminJournal';
 import MobileSearchPage from './Mobile_View/MobileSearchPage';
+import MobileMyJournal from './Mobile_View/MobileMyJournal';
 
 
 function App() {
@@ -73,6 +75,10 @@ function App() {
 
             <Route path='/journalDisplay'>
               <MobileAdminJournal />
+            </Route>
+
+            <Route path='/myjournal'>
+              <MobileMyJournal />
             </Route>
 
             <Route path='/uploadverse'>
@@ -143,6 +149,12 @@ function App() {
             <Route path="/profile">
               <div className='app__page'>
                 <UserProfile />
+              </div>
+            </Route>
+
+            <Route path="/myjournal">
+              <div className='app__page'>
+                <MyJournal />
               </div>
             </Route>
 

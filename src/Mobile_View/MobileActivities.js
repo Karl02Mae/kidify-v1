@@ -16,6 +16,7 @@ function MobileActivities() {
             <div className='ContentsMobile'>
                 <h2 className='MobileActivitiesTitle'>Activities</h2>
                 <Link to='/journal'><MobileActivitiesRow Icon={MenuBookIcon} Title='Journal' /></Link>
+                <Link to='/myjournal'><MobileActivitiesRow Icon={MenuBookIcon} Title='My Journals' /></Link>
             </div>
         </div>
     )

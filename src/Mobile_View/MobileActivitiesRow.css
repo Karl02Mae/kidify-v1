@@ -12,6 +12,8 @@
     margin-right: auto;
     background-image: linear-gradient(#D4AF37, yellow);
     align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 
@@ -22,6 +24,6 @@
 
 .MobileActivitiesTITLE {
     text-decoration: none;
-    padding: 5px;
+    padding: 10px;
     color: white;
 }

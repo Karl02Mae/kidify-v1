@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import logo from '../imgs/logo.png';
+import './MobileRegister.css';
 
 function MobileRegister() {
     const [username, setUsername] = useState("");

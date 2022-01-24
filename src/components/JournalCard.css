@@ -1,0 +1,23 @@
+.MyJournalCardCont {
+    display: flex;
+    flex-direction: row;
+    flex: 0.8;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    background-image: linear-gradient(#D4AF37,yellow);
+    z-index: 99;
+    padding: 10px;
+    margin: 20px;
+}
+
+.myUser {
+    display: flex;
+    align-items: center;
+}
+
+.MyJournalUser {
+    padding-left: 10px;
+}
