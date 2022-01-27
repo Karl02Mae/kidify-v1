@@ -71,15 +71,18 @@
     background-color: #1E1F20;
     padding: 10px;
     border-bottom: 1px solid grey;
+    white-space: pre-line;
 }
 
 .captionText {
     font-size: 12px;
     font-weight: lighter;
+    white-space: pre-line;
 }
 
 .mobileComments {
     background-color: #1E1F20;
+    white-space: pre-line;
 }
 
 .mobileCommentTitle {
