@@ -5,11 +5,13 @@ import VideoRow from './VideoRow';
 import DummyThumbnail from '../imgs/thumbnail.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
+import HasSearch from './HasSearch';
 
 function SearchPage() {
 
     const { searchTerm } = useParams();
     const [vids, setVids] = useState([]);
+    const show = true;
 
 
     useEffect(() => {
@@ -19,6 +21,10 @@ function SearchPage() {
                 id: doc.id
             })))
         })
+    }, []);
+
+    useEffect(() => {
+        
     }, []);
 
     return (
@@ -58,11 +64,12 @@ function SearchPage() {
                             img={DummyThumbnail}
                             description={data.videoCaption}
                         />
+                    } else {
+                        return <div key={id}></div>
                     }
-                    return <div key={id}></div>
                 })
                 }
-
+                <HasSearch show={show} />
 
 
             </div>

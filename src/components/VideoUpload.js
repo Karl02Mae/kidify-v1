@@ -3,8 +3,6 @@ import { storage, db } from '../firebase';
 import './VideoUpload.css';
 import { useHistory } from 'react-router-dom';
 
-import { Button } from '@material-ui/core';
-
 function VideoUpload() {
 
     const [video, setVideo] = useState(null);
@@ -98,9 +96,9 @@ function VideoUpload() {
             <input className="videoUpload__title" type="text" placeholder="Enter Video Title" onChange={event => setVideoTitle(event.target.value)} value={videoTitle} required />
             <textarea className="videoUpload__caption" type="text" placeholder="Enter Video Caption" onChange={event => setVideoCaption(event.target.value)} value={videoCaption} required />
             <input className='videoUpload__searchKey' type="text" placeholder='Enter Search Key' onChange={event => setSearchKey(event.target.value)} value={searchKey} required />
-            <Button className="button__videoUpload" onClick={handleUpload} >
+            <button className="button__videoUpload" onClick={handleUpload} >
                 Upload Video
-            </Button>
+            </button>
         </div>
     )
 }

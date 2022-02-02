@@ -1,5 +1,6 @@
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { storage, auth } from '../firebase';
 import './UserProfile.css';
 
@@ -7,11 +8,11 @@ function UserProfile() {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
-    const [newUserN, setNewUserN] = useState('');
     const [newPass, setNewPass] = useState('');
     const [conPass, setConPass] = useState('');
     const [progress, setProgress] = useState(0);
     const [image, setImage] = useState(null);
+    const history = useHistory();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -41,7 +42,6 @@ function UserProfile() {
     const handleUpload = () => {
         if (displayName === 'KidifyAdmin2021') {
             alert('You are an ADMIN!\nYou cannot change your Username!')
-            setNewUserN('');
         } else {
             if (image === null) {
                 alert('No Image Selected!');
@@ -49,9 +49,7 @@ function UserProfile() {
                 const imageName = displayName + image.name;
                 const uploadTask = storage.ref('profileImages/' + imageName).put(image);
 
-                if (newUserN === '') {
-                    alert('No Username Entered!');
-                } else if (newPass !== conPass) {
+                if (newPass !== conPass) {
                     alert('Password not matched!');
                 } else {
 
@@ -75,14 +73,12 @@ function UserProfile() {
                                 .then(url => {
                                     const currentUser = auth.currentUser;
                                     currentUser.updateProfile({
-                                        displayName: newUserN,
                                         photoURL: url,
                                     });
 
                                     currentUser.updatePassword(newPass);
 
                                     alert('Update Success!');
-                                    setNewUserN('');
                                     setNewPass('');
                                     setConPass('');
                                     window.location.reload();
@@ -102,14 +98,13 @@ function UserProfile() {
                 <h2>Upload Profile Image</h2>
                 <input className='upload__Image' type='file' accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
                 <progress className="update__Progress" value={progress} max="100" />
-                <h2>Update Username</h2>
-                <input className='update__Username' type='text' placeholder='Username' onChange={event => setNewUserN(event.target.value)} value={newUserN} />
                 <h2>Update Password</h2>
                 <input type='password' className='update__Password' placeholder='Password' onChange={event => setNewPass(event.target.value)} value={newPass} />
                 <h2>Confirm New Password</h2>
                 <input className='update__confirmPass' type='password' placeholder='Confirm Password' onChange={event => setConPass(event.target.value)} value={conPass} />
                 <br />
-                <Button className='Button' onClick={handleUpload}>Update Profile</Button>
+                <button className='Button' onClick={handleUpload}>Update Profile</button>
+                <button className='Button' onClick={() => history.push('/')}>Cancel</button>
             </div>
         </div>
     )

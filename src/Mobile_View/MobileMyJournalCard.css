@@ -7,7 +7,7 @@
     align-items: center;
     width: 80%;
     height: fit-content;
-    background-image: linear-gradient(#D4AF37,yellow);
+    background-image: linear-gradient(#4267B2,blue);
     z-index: 99;
     padding: 10px;
     margin: 20px;
@@ -21,5 +21,32 @@
 
 .MobileMyJournalUser {
     padding-left: 10px;
+    color: white;
+}
 
+.MobileMyJournalTitle {
+    color: white;
+}
+
+.MobileMyJournalDate {
+    color: white;
+}
+
+.MobileMyJournalEdit {
+    padding: 2.5px;
+    margin: 5px;
+    width: 45px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.MobileMyJournalButtons {
+    display: flex;
+}
+
+.MobileMyJournalDelete {
+    padding: 2.5px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
 }

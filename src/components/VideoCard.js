@@ -55,8 +55,8 @@ function VideoCard({ videoTitle, videoDate, id, searchKey }) {
             <div>
                 {displayName === 'KidifyAdmin2021' ? (
                     <div className='Admin__Buttons'>
-                        <button onClick={() => setShow(true)}>Edit</button>
-                        <button onClick={handleDelete}>Delete</button>
+                        <button className='EditVideo' onClick={() => setShow(true)}>Edit</button>
+                        <button className='DeleteVideo' onClick={handleDelete}>Delete</button>
                     </div>
                 ) : (
                     <div></div>

@@ -48,7 +48,7 @@
 }
 
 .header__inputButton:hover {
-    color: red !important;
+    color: blue !important;
 }
 
 .header__icons {
@@ -59,11 +59,11 @@
 .header__icons > * {
     margin-left: 10px;
     text-decoration: none;
-    color: #D4AF37;
+    color: white;
 }
 
 .header__icons > *:hover {
-    color: white;
+    color: blue;
     transition: 1s;
 }
 

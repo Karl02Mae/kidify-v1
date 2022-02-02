@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminRegister.css';
 import { Helmet } from 'react-helmet';
+import ChurchLogo from '../imgs/Church_Logo.png';
 
 function AdminRegister() {
 
@@ -38,7 +39,7 @@ function AdminRegister() {
             .then((authUser) => {
                 return authUser.user.updateProfile({
                     displayName: username,
-                    photoURL:null,
+                    photoURL: null,
                 })
 
             }).catch((error) => alert(error.message));
@@ -123,6 +124,17 @@ function AdminRegister() {
                     </center>
                 </form>
             </div>
+
+            <div className='HFCCInfo'>
+                <p>Partnered with:</p>
+                <p>Holy Family Christian Church</p>
+                <img
+                    className='HFCCLogo'
+                    src={ChurchLogo}
+                    alt='Church logo'
+                />
+            </div>
+
         </div>
     );
 }

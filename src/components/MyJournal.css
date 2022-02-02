@@ -7,10 +7,42 @@
 }
 
 .My__Journals {
-    padding-left: 20px;
-    padding-top: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
     text-decoration: none;
     font-size: 25px;
     font-weight: 500;
-    color: black;
+    color: white;
+    background-color: #4267B2;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.My__JournalList_Header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.My__JournalList_Header > h3 {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.MyJournalListUsername {
+    padding-top: 10px;
+    padding-left: 70px;
+}
+
+.MyJournalListTitle {
+    padding-left: 140px;
+}
+
+.MyJournalListDate {
+    padding-left: 180px;
 }

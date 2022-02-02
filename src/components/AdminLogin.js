@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminLogin.css';
 import { Helmet } from 'react-helmet';
+import ChurchLogo from '../imgs/Church_Logo.png';
 
 function AdminLogin() {
     const history = useHistory("");
@@ -52,11 +53,13 @@ function AdminLogin() {
     const forgotPass = () => {
         if (email === '') {
             const promptEmail = window.prompt('Enter your email');
+            if (promptEmail === null) {
+                return;
+            }
             auth.sendPasswordResetEmail(promptEmail);
             alert('Reset Email Sent!')
         } else {
-            auth.sendPasswordResetEmail(email);
-            alert('Reset Email sent!');
+            alert('Cancelled!');
         }
     }
 
@@ -87,7 +90,7 @@ function AdminLogin() {
                 />
             </Helmet>
             <div className="login_container">
-                <h3>Log In to KIDIFY!</h3>
+                <h3 className='LoginKidify'>Log In to KIDIFY!</h3>
                 <form>
                     <center>
                         <input type="email" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} />
@@ -108,6 +111,15 @@ function AdminLogin() {
                         </div>
                     </center>
                 </form>
+            </div>
+            <div className='HFCCInfo'>
+                <p>Partnered with:</p>
+                <p>Holy Family Christian Church</p>
+                <img
+                    className='HFCCLogo'
+                    src={ChurchLogo}
+                    alt='Church logo'
+                />
             </div>
         </div>
     )

@@ -24,7 +24,7 @@
 }
 
 .SidebarRow:hover > .SidebarRow__icon {
-    color: red;
+    color: blue;
 }
 
 .SidebarRow:hover > .SidebarRow__title {
@@ -32,13 +32,18 @@
 }
 
 .SidebarRow.selected {
-    background-image: linear-gradient(#D4AF37,yellow);
+    background-image: linear-gradient(#4267B2, darkblue);
+}
+
+.SidebarRow.selected:hover {
+    background-image: linear-gradient(#4267B2, blue);
 }
 
 .SidebarRow.selected > .SidebarRow__icon {
-    color: red;
+    color: white;
 }
 
 .SidebarRow.selected > .SidebarRow__title {
     font-weight: bold;
+    color: white;
 }

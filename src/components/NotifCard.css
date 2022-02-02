@@ -4,17 +4,22 @@
     width: fit-content;
     margin-bottom: 50px;
     margin-left: 50px;
+    border: 1px solid black;
+    border-bottom: none;
+    background-color: rgba(0,0,0,0.1);
 }
 
 .NotifCard__thumbnail {
     width: 800px;
     height: 450px;
+    box-shadow: gray 0px 5px 10px;
 }
 
 .Notif__info {
     display: flex;
     margin-top: 10px;
     padding-right: 30px;
+    box-shadow: gray 0px 5px 5px;
 }
 
 .Notif__text {
@@ -58,4 +63,16 @@
     height: 25px;
     width: 50px;
     margin: 10px;
+}
+
+.EditButton:hover {
+    background-color: #4267B2;
+    color: white;
+    cursor: pointer;
+}
+
+.DeleteButton:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }

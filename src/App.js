@@ -154,6 +154,7 @@ function App() {
 
             <Route path="/myjournal">
               <div className='app__page'>
+                <Sidebar3 />
                 <MyJournal />
               </div>
             </Route>

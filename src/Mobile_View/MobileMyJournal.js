@@ -51,6 +51,7 @@ function MobileMyJournal() {
                     if (displayName === data.username) {
                         return <MobileMyJournalCard
                             key={id}
+                            id={id}
                             content={data.journal_content}
                             date={data.journal_date}
                             title={data.journal_title}

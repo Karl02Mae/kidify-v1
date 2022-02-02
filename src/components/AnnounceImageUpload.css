@@ -1,7 +1,7 @@
 .imageupload {
     display: flex;
     flex: 0.8;
-    background-image: linear-gradient(#D4AF37, yellow);
+    background-image: linear-gradient(#4267B2, blue);
     flex-direction: column;
     width: 100%;
     max-width: 650px;
@@ -50,12 +50,26 @@
 }
 
 .button__upload {
-    margin-top: 10px !important;
+    margin-top: 10px;
+    height: 30px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
 }
 
 .button__upload:hover {
-    background-color: white !important;
+    color: black;
+    transition: 0.3s;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
 }
+
 .imageupload__date {
     margin-top: 5px;
     margin-left: auto;
@@ -69,8 +83,4 @@
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
-}
-
-.imageupload {
-    background-image: linear-gradient(#D4AF37, yellow);
 }

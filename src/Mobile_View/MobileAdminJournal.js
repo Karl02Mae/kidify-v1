@@ -29,6 +29,7 @@ function MobileAdminJournal() {
                         journals.map(({ id, data }) => (
                             <MobileAdminJournalCard
                                 key={id}
+                                id={id}
                                 content={data.journal_content}
                                 date={data.journal_date}
                                 title={data.journal_title}

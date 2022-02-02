@@ -8,7 +8,7 @@ function MobileMyJournalModal(props) {
         return (
             <div className='MobileMyJournalModal'>
                 <h4>{props.content}</h4>
-                <h4 className='Close'>Click again to close.</h4>
+                <button onClick={props.onClose} className='Close'>Close</button>
             </div>
         )
     }

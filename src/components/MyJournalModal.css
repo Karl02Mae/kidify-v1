@@ -18,4 +18,19 @@
     margin-left: auto;
     margin-right: auto;
     white-space: pre-line;
+    cursor: text;
+}
+
+.Close {
+    height: 30px;
+    width: 50px;
+    color: white;
+    background-color: darkblue;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Close:hover {
+    background-color: #4267B2;
 }

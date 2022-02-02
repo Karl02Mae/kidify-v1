@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import firebase from '@firebase/app-compat';
 import { storage, db } from '../firebase';
-import { Button } from '@material-ui/core';
+//import { Button } from '@material-ui/core';
 import './AnnounceImageUpload.css';
 import { useHistory } from 'react-router-dom';
 
@@ -85,9 +85,9 @@ function AnnounceImageUpload({ username }) {
             <input className="imageupload__button" type="file" accept="image/png, image/gif, image/jpeg" onChange={handleChange} />
             <input className="imageupload__title" type="text" placeholder="Enter Announcement Title" onChange={event => setTitle(event.target.value)} value={title} required />
             <textarea className="imageupload__text" type="text" placeholder="Enter a message..." onChange={event => setCaption(event.target.value)} value={caption} required />
-            <Button className="button__upload" onClick={handleUpload}>
+            <button className="button__upload" onClick={handleUpload}>
                 Upload
-            </Button>
+            </button>
         </div>
     )
 }

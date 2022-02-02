@@ -86,12 +86,12 @@ function Header() {
 
                 {/* Textbox and Search Icon */}
                 <div className="header__input">
-                    <input
+                    <Tooltip title='❗ Only use Search Key found at the bottom of each videos ❗'><input
                         onChange={e => setInputSearch(e.target.value)}
                         value={inputSearch}
                         placeholder=" Search"
                         type="text"
-                    />
+                    /></Tooltip>
 
                     <SearchIcon onClick={() => { setInputSearch(''); handleSearch(); }} className="header__inputButton" />
 
@@ -102,11 +102,11 @@ function Header() {
                     <div className="header__icons">
                         <Tooltip title='Upload Verse of the day'><Link to="/newannounce"><AddAlertIcon className="upload__icon" /></Link></Tooltip>
                         <Tooltip title='Upload Video'><Link to="/uploadvideos"><VideoCallIcon className="header__icon" /> </Link></Tooltip>
-                        <Avatar className="header__avatar"
+                        <Tooltip title='Profile'><Avatar className="header__avatar"
                             alt="Profile Picture"
                             src={userImage}
                             onClick={handleClick}
-                        />
+                        /></Tooltip>
                     </div>
                 ) : (
 

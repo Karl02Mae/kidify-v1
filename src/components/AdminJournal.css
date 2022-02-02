@@ -5,3 +5,32 @@
     width: 100%;
     height: 100vh;
 }
+
+.Journals {
+    margin: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #4267B2;
+}
+
+.JournalListHeader {
+    display: flex;
+    margin-left: 60px;
+}
+
+.JournalListUser {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.JournalListTitle {
+    margin-left: 240px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.JournalListDate {
+    margin-left: 230px;
+    font-size: 16px;
+    text-decoration: none;
+}

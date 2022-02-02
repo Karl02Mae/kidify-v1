@@ -7,17 +7,48 @@
     align-items: center;
     width: 80%;
     height: 50px;
-    background-image: linear-gradient(#D4AF37,yellow);
+    background-image: linear-gradient(#4267B2,blue);
     z-index: 99;
     padding: 10px;
     margin: 20px;
+    border-radius: 15px;
+}
+
+.MyJournalCardCont:hover {
+    background-image: linear-gradient(#4267B2,darkblue);
 }
 
 .myUser {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .MyJournalUser {
     padding-left: 10px;
+    color: white;
+}
+
+.MyJournalTitle {
+    color: white;
+    cursor: pointer;
+}
+
+.MyJournalDate {
+    color: white;
+}
+
+.MyJournalButtons > button {
+    margin-left: 10px;
+    border: none;
+    background-color: white;
+    height: 30px;
+    width: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.MyJournalButtons > button:hover {
+    background-color: #4267B2;
+    color: white;
 }

@@ -120,3 +120,24 @@
 .alert {
     color: red;
 }
+
+.HFCCInfo {
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    bottom: 150px;
+    right: 120px;
+}
+
+.HFCCInfo > p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.HFCCLogo {
+    padding-top: 10px;
+}
+
+.LoginKidify {
+    text-decoration: none;
+}

@@ -4,6 +4,7 @@ import { db, auth } from '../firebase';
 import JournalCard from './JournalCard';
 import './MyJournal.css';
 
+
 function MyJournal() {
 
     const [myJournals, setMyJournals] = useState([]);
@@ -44,11 +45,17 @@ function MyJournal() {
     return (
         <div className='MyJournalRoot'>
             <h3 className='My__Journals'>My Journals</h3>
+            <div className='My__JournalList_Header'>
+                <h3 className='MyJournalListUsername'>Username</h3>
+                <h3 className='MyJournalListTitle'>Title</h3>
+                <h3 className='MyJournalListDate'>Date</h3>
+            </div>
             <div className='My__JournalList'>
                 {myJournals.map(({ id, data }) => {
                     if (displayName === data.username) {
                         return <JournalCard
                             key={id}
+                            id={id}
                             content={data.journal_content}
                             date={data.journal_date}
                             title={data.journal_title}

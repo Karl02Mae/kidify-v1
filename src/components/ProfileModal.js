@@ -43,7 +43,7 @@ function ProfileModal(props) {
     } else if (props.show === true) {
         return (
             <div className='profile__container'>
-                <Button className='profile__close' onClick={props.onClose}><h1>X</h1></Button>
+                <button className='profile__close' onClick={props.onClose}><h1>X</h1></button>
                 <div className='profile__avatar'>
                     <center>
                         <Avatar
@@ -55,6 +55,7 @@ function ProfileModal(props) {
                     <h3>{props.username}</h3>
                 </div>
                 <hr />
+
                 <div className='profile__settings'>
                     <h3 onClick={() => { props.onClose(); handleClick(); }}>Profile Settings</h3>
                 </div>
