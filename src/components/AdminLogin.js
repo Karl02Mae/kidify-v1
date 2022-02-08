@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminLogin.css';
 import { Helmet } from 'react-helmet';
-import ChurchLogo from '../imgs/Church_Logo.png';
+// import ChurchLogo from '../imgs/Church_Logo.png';
 
 function AdminLogin() {
     const history = useHistory("");
@@ -112,7 +112,7 @@ function AdminLogin() {
                     </center>
                 </form>
             </div>
-            <div className='HFCCInfo'>
+            {/* <div className='HFCCInfo'>
                 <p>Partnered with:</p>
                 <p>Holy Family Christian Church</p>
                 <img
@@ -120,7 +120,7 @@ function AdminLogin() {
                     src={ChurchLogo}
                     alt='Church logo'
                 />
-            </div>
+            </div> */}
         </div>
     )
 }

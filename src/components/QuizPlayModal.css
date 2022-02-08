@@ -1,0 +1,77 @@
+.QuizPlayCont {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: fit-content;
+    width: fit-content; 
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    padding: 10px;
+}
+
+.QuizButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+.Quests {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.QuizPlaySubmit {
+    margin-top: auto;
+    height: 30px;
+    width: 55px;
+    padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.QuizPlaySubmit:hover {
+    background-color: green;
+    color: white;
+}
+
+.QuizClose {
+    margin-top: auto;
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.QuizClose:hover {
+    background-color: red;
+    color: white;
+}
+
+.Quests > h4 {
+    padding: 10px;
+}
+
+.Quests > input {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 25px;
+    width: 300px;
+    padding: 5px;
+}

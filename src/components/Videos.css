@@ -16,3 +16,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.category {
+    margin: 15px;
+}
+
+.range {
+    margin: 15px;
+}

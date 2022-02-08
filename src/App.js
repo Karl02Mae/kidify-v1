@@ -23,6 +23,7 @@ import Activities from './components/Activities';
 import Journal from './components/Journal';
 import AdminJournal from './components/AdminJournal';
 import MyJournal from './components/MyJournal';
+import QuizGame from './components/QuizGame';
 
 //Components for Mobile View
 import MobileLogin from './Mobile_View/MobileLogin';
@@ -198,6 +199,13 @@ function App() {
               <div className='app__page'>
                 <Sidebar />
                 <AdminJournal />
+              </div>
+            </Route>
+
+            <Route path='/quiz'>
+              <div className='app__page'>
+                <Sidebar3 />
+                <QuizGame />
               </div>
             </Route>
 

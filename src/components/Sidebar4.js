@@ -8,7 +8,7 @@ import VideoIcon from '@material-ui/icons/OndemandVideo';
 import InfoIcon from '@mui/icons-material/Info';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 
-import ChurchLogo from '../imgs/Church_Logo.png';
+// import ChurchLogo from '../imgs/Church_Logo.png';
 import SidebarRow from './SidebarRow';
 
 function Sidebar() {
@@ -20,10 +20,10 @@ function Sidebar() {
             <Link to='/activities'><SidebarRow Icon={NoteAddIcon} title='Activities' /> </Link>
             <Link to='/about'><SidebarRow selected Icon={InfoIcon} title='About Us' /></Link>
             <hr />
-            <div className='HFCC'>
+            {/* <div className='HFCC'>
                 <img className='HFCCLogo' src={ChurchLogo} alt='Church Logo' />
                 <p className='HFCCText'>Kidify is an online streaming platform made for Holy Family Christian Church</p>
-            </div>
+            </div> */}
         </div>
     )
 }

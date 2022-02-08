@@ -1,0 +1,66 @@
+.QuizUploadCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 5px;
+    height: fit-content;
+    width: 75%;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    z-index: 999;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: pre-line;
+    cursor: text;
+}
+
+.QuizUploadCont > h3 {
+    text-decoration: none;
+}
+
+.QuizSubmit {
+    height: 30px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.QuizSubmit:hover {
+    background-color: green;
+    color: white;
+}
+
+.QuizCancel {
+    height: 30px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.QuizCancel:hover {
+    background-color: red;
+    color: white;
+}
+
+.QuizUploadCont > h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.QuizUploadCont > input {
+    height: 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}

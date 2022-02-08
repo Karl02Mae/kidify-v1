@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import './AdminRegister.css';
 import { Helmet } from 'react-helmet';
-import ChurchLogo from '../imgs/Church_Logo.png';
+// import ChurchLogo from '../imgs/Church_Logo.png';
 
 function AdminRegister() {
 
@@ -122,10 +122,13 @@ function AdminRegister() {
                             Sign Up
                         </button>
                     </center>
+                    <center>
+                        <Link to='/login'><p className='ppp'>Already have an account? Log in now!</p></Link>
+                    </center>
                 </form>
             </div>
 
-            <div className='HFCCInfo'>
+            {/* <div className='HFCCInfo'>
                 <p>Partnered with:</p>
                 <p>Holy Family Christian Church</p>
                 <img
@@ -133,7 +136,7 @@ function AdminRegister() {
                     src={ChurchLogo}
                     alt='Church logo'
                 />
-            </div>
+            </div> */}
 
         </div>
     );

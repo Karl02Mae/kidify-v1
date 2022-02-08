@@ -8,6 +8,8 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 function Videos() {
 
     const [vids, setVids] = useState([]);
+    const [cat, setCat] = useState('default');
+    const [range, setRange] = useState('default');
 
 
     useEffect(() => {
@@ -47,20 +49,146 @@ function Videos() {
                     />
                 </Helmet>
                 <h2> Available Lessons </h2>
+                <label for='category'>Category:</label>
+                <select name='category' className='category' onChange={(e) => setCat(e.target.value)}>
+                    <option value='default'>Default</option>
+                    <option value='Lessons'>Lessons</option>
+                    <option value='Mass'>Mass</option>
+                </select>
+                <label for='range'>Age Range:</label>
+                <select name='range' className='range' onChange={(e) => setRange(e.target.value)}>
+                    <option value='default'>Default</option>
+                    <option value='8-10'>8 - 10</option>
+                    <option value='11-14'>11-14</option>
+                    <option value='15-16'>15-16</option>
+                </select>
                 <div className="Videos__uploads">
-
                     {
-                        vids.map(({ id, data }) => (
-                            <VideoCard
-                                key={id}
-                                id={id}
-                                searchKey={data.searchKey}
-                                videoTitle={data.videoTitle}
-                                videoDate={data.videoDate}
-                                videoCaption={data.videoCaption}
-                                videoUrl={data.videoUrl}
-                            />
-                        ))
+                        vids.map(({ id, data }) => {
+                            if (cat === 'default' && range === 'default') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'default' && range === '8-10' && data.range === '8-10') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'default' && range === '11-14' && data.range === '11-14') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'default' && range === '15-16' && data.range === '15-16') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Lessons' && data.videoCategory === 'Lessons' && range === 'default') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Lessons' && data.videoCategory === 'Lessons' && range === '8-10' && data.range === '8-10') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Lessons' && data.videoCategory === 'Lessons' && range === '11-14' && data.range === '11-14') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Lessons' && data.videoCategory === 'Lessons' && range === '15-16' && data.range === '15-16') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Mass' && data.videoCategory === 'Mass' && range === 'default') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Mass' && data.videoCategory === 'Mass' && range === '8-10' && data.range === '8-10') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Mass' && data.videoCategory === 'Mass' && range === '11-14' && data.range === '11-14') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else if (cat === 'Mass' && data.videoCategory === 'Mass' && range === '15-16' && data.range === '15-16') {
+                                return <VideoCard
+                                    key={id}
+                                    id={id}
+                                    searchKey={data.searchKey}
+                                    videoTitle={data.videoTitle}
+                                    videoDate={data.videoDate}
+                                    videoCaption={data.videoCaption}
+                                    videoUrl={data.videoUrl}
+                                />
+                            } else {
+                                return <div id={id}></div>
+                            }
+                        })
                     }
 
                 </div>

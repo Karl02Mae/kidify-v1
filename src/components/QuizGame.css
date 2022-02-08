@@ -1,0 +1,23 @@
+.QuizGame__Cont {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.adminFunc__addQuiz {
+    height: 30px;
+    width: 70px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.adminFunc__addQuiz:hover {
+    background-color: blue;
+    color: white;
+}
