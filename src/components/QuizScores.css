@@ -1,0 +1,15 @@
+.QuizScoresCont {
+    display: flex;
+    flex: 0.8;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.QuizScoreCard__Cont {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

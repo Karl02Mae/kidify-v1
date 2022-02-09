@@ -62,7 +62,8 @@ function ProfileModal(props) {
 
                 {displayName === 'KidifyAdmin2021' ? (
                     <div className='adminJournal'>
-                        <h3 onClick={() => { history.push('journalDisplay'); props.onClose(); }}>Children's Journals</h3>
+                        <h3 onClick={() => { history.push('/journalDisplay'); props.onClose(); }}>Children's Journals</h3>
+                        <h3 onClick={() => { history.push('/scores'); props.onClose(); }}>Quiz Scores</h3>
                     </div>
                 ) : (<div></div>)
                 }

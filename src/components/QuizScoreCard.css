@@ -1,0 +1,22 @@
+.QuizScoreCardCont {
+    display: flex;
+    background-image: linear-gradient(#4267B2, blue);
+    padding: 10px;
+    height: 120px;
+    width: 300px;
+    margin: 10px;
+}
+
+.QuizScores > h4 {
+    color: white;
+}
+
+.DeleteQuizScore {
+    margin-left: 80px;
+    height: 25px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+}

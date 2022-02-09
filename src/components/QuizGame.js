@@ -69,6 +69,7 @@ function QuizGame() {
                             q5={data.Q5}
                             q5a={data.Q5A}
                             title={data.Title}
+                            username={displayName}
                         />
                     })
                 }

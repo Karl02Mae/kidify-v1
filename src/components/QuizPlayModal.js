@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { db, auth } from '../firebase';
 import './QuizPlayModal.css';
+import { useHistory } from 'react-router-dom';
 
 function QuizPlayModal(props) {
 
@@ -14,6 +16,31 @@ function QuizPlayModal(props) {
     const [s4, setS4] = useState(0);
     const [s5, setS5] = useState(0);
     const [totalScore, setTotalScore] = useState(0)
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const [user, setUser] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const history = useHistory();
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                //user has logged in
+                setUser(authUser);
+                setDisplayName(authUser.displayName);
+            } else {
+                //user is logged out
+                setUser(null);
+                setDisplayName('');
+                history.push('/login');
+            }
+        })
+
+        return () => {
+            // perform clean up actions
+            unsubscribe();
+        }
+    }, [user, displayName, history]);
 
     useEffect(() => {
         if (q1Ans === props.q1a) {
@@ -36,6 +63,15 @@ function QuizPlayModal(props) {
     }, [q1Ans, q2Ans, q3Ans, q4Ans, q5Ans, totalScore, props, s1, s2, s3, s4, s5])
 
     const handleSubmit = () => {
+
+        db.collection('QuizScores').add({
+            Date: date,
+            QuizTitle: props.title,
+            Score: totalScore,
+            Username: displayName,
+        }).catch((error) => {
+            console.log(error);
+        });
 
         alert('Your total Score is ' + totalScore + '/5.');
         setq1Ans('');

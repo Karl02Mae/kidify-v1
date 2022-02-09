@@ -24,6 +24,7 @@ import Journal from './components/Journal';
 import AdminJournal from './components/AdminJournal';
 import MyJournal from './components/MyJournal';
 import QuizGame from './components/QuizGame';
+import QuizScores from './components/QuizScores';
 
 //Components for Mobile View
 import MobileLogin from './Mobile_View/MobileLogin';
@@ -171,6 +172,13 @@ function App() {
               <div className="app__page">
                 <Sidebar />
                 <VideoUploadPage />
+              </div>
+            </Route>
+
+            <Route path='/scores'>
+              <div className='app__page'>
+                <Sidebar />
+                <QuizScores />
               </div>
             </Route>
 
