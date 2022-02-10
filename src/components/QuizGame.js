@@ -46,7 +46,7 @@ function QuizGame() {
     return (
         <div className='QuizGame__Cont'>
             <h2>Quiz Game</h2>
-            {displayName === 'KidifyAdmin2021' ? (
+            {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                 <div className='QuizGame__adminFunc'>
                     <button className='adminFunc__addQuiz' onClick={() => setShow(true)}>Add Quiz</button>
                 </div>

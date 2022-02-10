@@ -98,7 +98,7 @@ function Header() {
                 </div>
 
                 {/* Upload, Alert and Profile */}
-                {displayName === 'KidifyAdmin2021' ? (
+                {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                     <div className="header__icons">
                         <Tooltip title='Upload Verse of the day'><Link to="/newannounce"><AddAlertIcon className="upload__icon" /></Link></Tooltip>
                         <Tooltip title='Upload Video'><Link to="/uploadvideos"><VideoCallIcon className="header__icon" /> </Link></Tooltip>

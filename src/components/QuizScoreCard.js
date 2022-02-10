@@ -47,7 +47,7 @@ function QuizScoreCard(props) {
                 <h4 className='QuizScore__Score'>Score: {props.Score}/5</h4>
                 <h4 className='QuizScore__Date>'>Date: {props.Date}</h4>
             </div>
-            {displayName === 'KidifyAdmin2021' ? (
+            {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                 <div className='QuizAdmin__Buttons'>
                     <button className='DeleteQuizScore' onClick={handleDel}>Delete</button>
                 </div>

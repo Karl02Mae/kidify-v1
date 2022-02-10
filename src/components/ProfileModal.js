@@ -60,7 +60,7 @@ function ProfileModal(props) {
                     <h3 onClick={() => { props.onClose(); handleClick(); }}>Profile Settings</h3>
                 </div>
 
-                {displayName === 'KidifyAdmin2021' ? (
+                {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                     <div className='adminJournal'>
                         <h3 onClick={() => { history.push('/journalDisplay'); props.onClose(); }}>Children's Journals</h3>
                         <h3 onClick={() => { history.push('/scores'); props.onClose(); }}>Quiz Scores</h3>

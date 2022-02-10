@@ -53,7 +53,7 @@ function VideoCard({ videoTitle, videoDate, id, searchKey }) {
                 />
             </Link>
             <div>
-                {displayName === 'KidifyAdmin2021' ? (
+                {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                     <div className='Admin__Buttons'>
                         <button className='EditVideo' onClick={() => setShow(true)}>Edit</button>
                         <button className='DeleteVideo' onClick={handleDelete}>Delete</button>

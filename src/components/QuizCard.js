@@ -49,7 +49,7 @@ function QuizCard(props) {
             <div className='QuizTitle'>
                 <h2 className='QuizTitle__Title' onClick={() => setShow(true)}>Title: {props.title}</h2>
             </div>
-            {displayName === 'KidifyAdmin2021' ? (
+            {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                 <button className='QuizDel' onClick={handleClick}>Delete</button>
             ) : (<div></div>)}
             <QuizPlayModal

@@ -48,7 +48,7 @@ function NotifCard({ user, imageUrl, title, date, message, id }) {
         <div className="NotifCard">
             <img className="NotifCard__thumbnail" src={imageUrl} alt="thumbnail" height="200px" />
             <div>
-                {displayName === 'KidifyAdmin2021' ? (
+                {displayName === 'KidifyAdmin2021' || displayName === 'ImaculadaConception' ? (
                     <div className="Admin__Buttons">
                         <button className='EditButton' onClick={() => setShow(true)}>Edit</button>
                         <button className='DeleteButton' onClick={handleDelete}>Delete</button>
